@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\PharmacyController;
 use App\Http\Controllers\API\RegisterController;
 
@@ -21,5 +23,9 @@ Route::post('/login', [RegisterController::class, 'login']);
 
 Route::middleware(['auth:api'])->group(function () {
     Route::get('/pharmacies',[PharmacyController::class, 'index']);
+    Route::post('users/{user}',[UserController::class, 'update']);
+    Route::get('/orders',[OrderController::class, 'index']);
+    Route::get('/orders/{order}',[OrderController::class, 'show']);
+
 });
 

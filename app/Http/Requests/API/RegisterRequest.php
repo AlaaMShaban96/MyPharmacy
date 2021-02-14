@@ -23,13 +23,31 @@ class RegisterRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'email' => ['required'],
-            'name' => ['required'],
-            'phone' => ['required'],
-            'password'=>['required','min:8'],
-            
-        ];
+        $arr = explode('@', $this->route()->getActionName());
+        $method = $arr[1];  // The controller method
+    
+       
+        switch ($method) {
+            case 'register':
+                return [
+                    'email' => ['required', 'unique:users', 'email'],
+                    'name' => ['required'],
+                    'phone' => ['required'],
+                    'password'=>['required','min:8'],
+                    
+                ];
+                break;
+                
+            case 'update':
+                return [
+                    'name' => ['required'],
+                    'phone' => ['required'],
+                    // 'password'=>['required','min:8'],
+                    
+                ];
+                break;
+         }
+        
     }
     public function messages()
     {
@@ -39,7 +57,7 @@ class RegisterRequest extends FormRequest
             'email.required'=>'يجب كتابة البريد الالكتروني',
             'name.required'=>'يجب كتابة الاسم',
             'phone.required'=>'يجب كتابة رقم الهاتف',
-            'email.email'=>'البريد الالكتروني غير موجود'
+            'email.unique'=>'البريد الالكتروني مستخدم ',
 
         ];
     }

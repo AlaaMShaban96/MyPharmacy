@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\API\User;
+namespace App\Http\Resources\API\Order;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UserResourc extends JsonResource
+class OrderResource extends JsonResource
 {
     public static $wrap = '';
     /**
@@ -18,11 +18,11 @@ class UserResourc extends JsonResource
         // return parent::toArray($request);
         return[
             'id'=>$this->id,
-            'name'=>$this->name,
-            'email'=>$this->email,
-            'phone'=>$this->phone,
             'image'=>$this->image,
-            'token'=>$this->createToken('authToken')->accessToken,
+            'name'=>$this->name,
+            'pharmacies'=>$this->pharmacies,
+
+
         ];
     }
 }
