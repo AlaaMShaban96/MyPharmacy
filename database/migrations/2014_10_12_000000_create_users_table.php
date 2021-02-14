@@ -18,7 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->text('image')->nullable();
             $table->string('phone');
+            $table->bigInteger('pharmacy_id')->unsigned()->nullable();
+            // $table->foreign('pharmacy_id')->references('id')->on('pharmacies')->onDelete('cascade');
+            
             $table->rememberToken();
             $table->timestamps();
         });
