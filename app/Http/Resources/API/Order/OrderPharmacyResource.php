@@ -2,12 +2,10 @@
 
 namespace App\Http\Resources\API\Order;
 
-use Illuminate\Support\Collection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class OrderResource extends JsonResource
+class OrderPharmacyResource extends JsonResource
 {
-    public static $wrap = '';
     /**
      * Transform the resource into an array.
      *
@@ -16,13 +14,10 @@ class OrderResource extends JsonResource
      */
     public function toArray($request)
     {
+        // return parent::toArray($request);
         return[
             'id'=>$this->id,
-            'image'=>$this->image,
             'name'=>$this->name,
-            'pharmacies'=>$this->pharmacies,
-
-
         ];
     }
 }
