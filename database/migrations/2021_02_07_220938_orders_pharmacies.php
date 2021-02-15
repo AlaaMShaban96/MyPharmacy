@@ -17,7 +17,7 @@ class OrdersPharmacies extends Migration
             $table->id();
             $table->Integer('price')->unsigned()->nullable();
             $table->tinyInteger('status')->default(0);
-            $table->text('text')->nullable()->default('');
+            $table->text('text')->nullable();
             $table->bigInteger('pharmacy_id')->unsigned();
             $table->foreign('pharmacy_id')->references('id')->on('pharmacies')->onDelete('cascade');
             $table->bigInteger('order_id')->unsigned()->nullable();
