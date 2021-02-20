@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PharmacSeed::class);
         $this->call(UserSeed::class);
        
-        $this->call(OrderSeed::class);
+        // $this->call(OrderSeed::class);
 
         // \App\Models\User::factory(10)->create();
     }

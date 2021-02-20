@@ -17,7 +17,11 @@ class PharmacSeed extends Seeder
         DB::table('pharmacies')->insert([
   
             [
-                'name' => 'عيادة الرحمة',
+                'name' => 'صيدالية شارع الزاوية',
+
+            ],
+            [
+                'name' => 'صيدالية الطبي',
 
             ]
         ]);

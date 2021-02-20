@@ -19,10 +19,19 @@ class UserSeed extends Seeder
         DB::table('users')->insert([
   
             [
-                'name' => 'Super Admin',
-                'email' => 'admin1@nano-tech.ly',
+                'name' => 'Admin',
+                'email' => 'alzwyastrest@gmail.com',
                 'phone' => '0927780208',
                 'pharmacy_id' => 1,
+                'password' => Hash::make('Nano1234'),
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            ],
+            [
+                'name' => 'Admin',
+                'email' => 'altebe@gmail.com',
+                'phone' => '0927780208',
+                'pharmacy_id' => 2,
                 'password' => Hash::make('Nano1234'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
