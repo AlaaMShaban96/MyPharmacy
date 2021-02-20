@@ -26,7 +26,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('users/{user}',[UserController::class, 'update']);
     
     Route::get('/orders',[OrderController::class, 'index']);
-    Route::post('/orders',[OrderController::class, 'create']);
+    Route::post('/order',[OrderController::class, 'create']);
     Route::get('/orders/{order}',[OrderController::class, 'show']);
 
 });
