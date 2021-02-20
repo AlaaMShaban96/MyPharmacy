@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 class PharmaciesResource extends ResourceCollection
 {
     public $collects = 'App\Http\Resources\API\Pharmacy\PharmacyResource';
+    public static $wrap = '';
+
     /**
      * Transform the resource collection into an array.
      *

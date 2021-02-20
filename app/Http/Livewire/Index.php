@@ -25,7 +25,7 @@ class Index extends Component
    public function replayOrder(Order $order,$key)
    {
    
-      auth()->user()->pharmacy->orders()->attach($order->id,['price'=>$this->order[$key]['price'],'status'=>2]);
+      auth()->user()->pharmacy->orders()->attach($order->id,['price'=>$this->order[$key]['price'],'text'=>$this->order[$key]['text'],'status'=>2]);
       $this->myOrderNumber+1;
       
    }

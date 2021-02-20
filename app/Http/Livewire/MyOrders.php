@@ -12,16 +12,15 @@ class MyOrders extends Component
     public function render()
     {
         $this->orders=auth()->user()->pharmacy->orders()->whereHas('pharmacies', function($q) {
-            $q->where('orders_pharmacies.status', 0);
+            $q->where('orders_pharmacies.status', 1);
         })->get();
    
         return view('livewire.my-orders',['orders'=>$this->orders]);
     }
     public function replayOrder(Order $order,$key)
     {
-        // dd( $order);
-    
-       auth()->user()->pharmacy->orders()->updateExistingPivot($order->id,['price'=>$this->order[$key]['price'],'status'=>2]);
+        
+       auth()->user()->pharmacy->orders()->updateExistingPivot($order->id,['price'=>$this->order[$key]['price'],'text'=>$this->order[$key]['text'],'status'=>2]);
        
     }
 }

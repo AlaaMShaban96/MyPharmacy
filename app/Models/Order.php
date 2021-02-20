@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
-    protected $fillable = ['image','name','text','status','user_id','pharmacy_id','price'];
+    protected $fillable = ['image','name','text','status','user_id'];
 
     public function pharmacies()
     {
-        return $this->belongsToMany(Pharmacy::class,'orders_pharmacies')->withPivot('price','status');
+        return $this->belongsToMany(Pharmacy::class,'orders_pharmacies')->withPivot('price','text','status');
     }
     public function user()
     {
