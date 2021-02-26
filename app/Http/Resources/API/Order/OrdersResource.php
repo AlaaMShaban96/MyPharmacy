@@ -2,11 +2,12 @@
 
 namespace App\Http\Resources\API\Order;
 
+use App\Http\Resources\API\Order\OrderResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class OrdersResource extends ResourceCollection
 {
-    public $collects = 'App\Http\Resources\API\Order\OrderResource';
+    public $collects = OrderResource::class;
     public static $wrap = '';
 
     /**

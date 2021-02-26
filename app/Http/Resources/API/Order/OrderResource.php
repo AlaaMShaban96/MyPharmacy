@@ -20,6 +20,8 @@ class OrderResource extends JsonResource
             'id'=>$this->id,
             'image'=>$this->image,
             'name'=>$this->name,
+            'text'=>$this->text,
+            'created_at'=>$this->created_at,
             'pharmacies'=>$this->pharmacies,
 
 
