@@ -12,9 +12,10 @@ use App\Http\Resources\API\Order\OrderFullDataResource;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return new OrdersResource(Order::where('user_id',auth()->user()->id)->where('status',1)->with('pharmacies')->get());
+        // dd((isset($request->status)?0:1),$request->status);
+        return new OrdersResource(Order::where('user_id',auth()->user()->id)->where('status',isset($request->status)?0:1)->with('pharmacies')->get());
     }
     public function show(Order $order)
     {
@@ -38,6 +39,7 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         $order->status=0;
+        $order->save();
         return response()->json(['response'=>'تم حدف الطلب بنجاح'], 200);
     }
     private function uploadeImages( $request)
