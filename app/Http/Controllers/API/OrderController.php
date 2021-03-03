@@ -14,7 +14,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        return new OrdersResource(Order::where('user_id',auth()->user()->id)->with('pharmacies')->get());
+        return new OrdersResource(Order::where('user_id',auth()->user()->id)->where('status',1)->with('pharmacies')->get());
     }
     public function show(Order $order)
     {
@@ -34,6 +34,11 @@ class OrderController extends Controller
             Order::create($data);
         }
         return response()->json(['response'=>'تم ارسال الطلب بنجاح'], 200);
+    }
+    public function destroy(Order $order)
+    {
+        $order->status=0;
+        return response()->json(['response'=>'تم حدف الطلب بنجاح'], 200);
     }
     private function uploadeImages( $request)
     {

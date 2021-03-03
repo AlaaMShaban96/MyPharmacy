@@ -2,7 +2,10 @@
 
 
 
+use App\Http\Livewire\Index;
 use App\Http\Livewire\Login;
+use App\Http\Livewire\Profile;
+use App\Http\Livewire\Records;
 use App\Http\Livewire\MyOrders;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -28,5 +31,7 @@ use App\Http\Controllers\Dasboard\SystemController;
 // Route::get('dashboard/', [DashboardController::class,'index']);
 Route::post('login/', [SystemController::class,'login'])->name('login');
 Route::get('/', Login::class);
-Route::get('/dashboard', App\Http\Livewire\Index::class);
+Route::get('/dashboard', Index::class);
 Route::get('/my-oreders', MyOrders::class);
+Route::get('/records', Records::class);
+Route::get('/profile', Profile::class);

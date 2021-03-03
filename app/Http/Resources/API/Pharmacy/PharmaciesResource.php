@@ -2,11 +2,12 @@
 
 namespace App\Http\Resources\API\Pharmacy;
 
+use App\Http\Resources\API\Pharmacy\PharmacyResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class PharmaciesResource extends ResourceCollection
 {
-    public $collects = 'App\Http\Resources\API\Pharmacy\PharmacyResource';
+    public $collects = PharmacyResource::class;
     public static $wrap = '';
 
     /**

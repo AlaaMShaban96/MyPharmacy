@@ -1,7 +1,7 @@
 @php
 $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', function($q) {
-            $q->where('orders_pharmacies.status', 0);
-          })->get();    
+            $q->where('orders_pharmacies.status', 1);
+          })->take(8)->get();    
 @endphp
 <!DOCTYPE html>
 <html>
@@ -33,13 +33,13 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
   </head>
 
   <body>
-    <div class="main-content" id="panel">
+    <div class="main-content " id="panel">
       <!-- Topnav -->
-      <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+      <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom ">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <ul class="navbar-nav align-items-center  ml-md-auto ">
+            <ul class="navbar-nav align-items-center text-center ml-md-auto ">
               <li class="nav-item d-xl-none">
                 <!-- Sidenav toggler -->
                 <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
@@ -59,10 +59,10 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="ni ni-bell-55"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden"style="text-align: right;">
                   <!-- Dropdown header -->
                   <div class="px-3 py-3">
-                    <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{$notifications->count()}}</strong> notifications.</h6>
+                    <h6 class="text-sm text-muted m-0">لديك  <strong class="text-primary">{{$notifications->count()}}</strong> طلبات مرسلة الي الصيدالية</h6>
                   </div>
                   <!-- List group notfction -->
                   <div class="list-group list-group-flush">
@@ -81,7 +81,7 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
                               <h4 class="mb-0 text-sm">{{$order->user->name}}</h4>
                             </div>
                             <div class="text-right text-muted">
-                              <small>2 hrs ago</small>
+                              <small>{{$order->created_at->diffForHumans()}}</small>
                             </div>
                           </div>
                           <p class="text-sm mb-0">{{$order->text}}</p>
@@ -94,7 +94,9 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
                    
                   </div>
                   <!-- View all -->
+                  @if (count($notifications)>8)
                   <a href="{{url('/my-oreders')}}" class="dropdown-item text-center text-primary font-weight-bold py-3">عرض كل الطلبات</a>
+                  @endif
                 </div>
               </li>
              
@@ -113,7 +115,7 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
                 </a>
                 <div class="dropdown-menu  dropdown-menu-right ">
                  
-                  <a href="#!"  class="dropdown-item">
+                  <a href="{{url('/profile')}}"  class="dropdown-item">
                     <i class="ni ni-single-02"></i>
                     <span>حسابي</span>
                   </a>
@@ -125,6 +127,10 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
                   <a href="{{url('/my-oreders')}}" class="dropdown-item">
                     <i class="ni ni-support-16"></i>
                     <span>طلباتي</span>
+                  </a>
+                  <a href="{{url('/records')}}" class="dropdown-item">
+                    <i class="ni ni-collection"></i>
+                    <span>سجل الردود</span>
                   </a>
                   <div class="dropdown-divider"></div>
                   <a href="#!" class="dropdown-item">

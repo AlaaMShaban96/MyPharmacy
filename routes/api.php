@@ -28,6 +28,7 @@ Route::middleware(['auth:api'])->group(function () {
     Route::get('/orders',[OrderController::class, 'index']);
     Route::post('/order',[OrderController::class, 'create']);
     Route::get('/orders/{order}',[OrderController::class, 'show']);
+    Route::delete('/orders/{order}',[OrderController::class, 'destroy']);
 
 });
 
