@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pharmacy extends Model
-{
+{ 
     use HasFactory;
     protected $fillable = ['name','x','y','user_id','address'];
 
