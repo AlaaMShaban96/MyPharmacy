@@ -5,9 +5,12 @@ namespace App\Http\Livewire;
 use App\Models\Order;
 use Livewire\Component;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $myOrderNumber,$allOrdersNumber;
     public $order = ['price','text' ];
  
@@ -16,7 +19,7 @@ class Index extends Component
     {
         
         $this->myOrderNumber=auth()->user()->pharmacy->orders->count();
-        $orders=Order::where('status',true)->orderBy('id', 'DESC')->get();
+        $orders=Order::where('status',true)->orderBy('id', 'DESC')->paginate(7);
         $this->allOrdersNumber=$orders->count();
         return view('livewire.index',['orders'=>$orders]);
     }

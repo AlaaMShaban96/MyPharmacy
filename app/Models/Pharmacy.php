@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pharmacy extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','x','y'];
+    protected $fillable = ['name','x','y','user_id','address'];
 
     public function orders()
     {

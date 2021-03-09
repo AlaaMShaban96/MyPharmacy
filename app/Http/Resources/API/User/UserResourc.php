@@ -21,6 +21,7 @@ class UserResourc extends JsonResource
             'name'=>$this->name,
             'email'=>$this->email,
             'phone'=>$this->phone,
+            'created_at'=>$this->created_at->format('d-m-Y'),
             'image'=>$this->image,
             'token'=>$this->createToken('authToken')->accessToken,
         ];

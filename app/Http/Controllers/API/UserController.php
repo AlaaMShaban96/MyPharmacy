@@ -10,7 +10,7 @@ use App\Http\Requests\API\RegisterRequest;
 class UserController extends Controller
 {
     public function update(RegisterRequest $request,User $user)
-    {
+    { 
         if (isset($request->password)) {
             $user->password=Hash::make($request->password);
         }

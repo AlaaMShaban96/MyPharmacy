@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->text('image')->nullable();
             $table->string('phone');
+            $table->char('status', 2)->default(1);//status=0 for admins status=1 for users
             $table->bigInteger('pharmacy_id')->unsigned()->nullable();
-            // $table->foreign('pharmacy_id')->references('id')->on('pharmacies')->onDelete('cascade');
             
             $table->rememberToken();
             $table->timestamps();

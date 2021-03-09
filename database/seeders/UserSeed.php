@@ -37,7 +37,7 @@ class UserSeed extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'name' => 'Super user',
+                'name' => 'هشام القوي',
                 'email' => 'super@nano-tech.ly',
                 'phone' => '0927780208',
                 'pharmacy_id' => null,
@@ -46,7 +46,7 @@ class UserSeed extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'name' => 'Super2 user',
+                'name' => 'علاء 🌘',
                 'email' => 'super2@nano-tech.ly',
                 'phone' => '0927780208',
                 'pharmacy_id' => null,

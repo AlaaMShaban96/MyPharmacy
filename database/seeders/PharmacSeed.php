@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -20,11 +21,17 @@ class PharmacSeed extends Seeder
                 'name' => 'صيدالية شارع الزاوية',
                 'x'=>'32.726405',
                 'y'=>'12.703670',
+                'address'=>'صيدلية الطبي - شارع الزاوية',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'صيدالية الطبي',
                 'x'=>'32.726405',
                 'y'=>'12.703670',
+                'address'=>'صيدلية الطبي - شارع الزاوية',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
         ]);
     }

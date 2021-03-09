@@ -15,6 +15,9 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
         $request['password'] = Hash::make($request->password);
+        if (isset( $request->photo)) {
+            $request['image']=$this->uploadeImages( $request);
+        }
         $user = User::create($request->all());
         return new UserResourc($user);
     }
@@ -32,5 +35,13 @@ class RegisterController extends Controller
         return new UserResourc(auth()->user());
         //  response(['user' => auth()->user(), 'access_token' => $accessToken]);
 
+    }
+    private function uploadeImages( $request)
+    {
+        $imageName = time().time().".png";
+
+        $path ="storage/". $request->file('photo')->storeAs('user/image', $imageName, 'public');
+       
+        return $path;
     }
 }

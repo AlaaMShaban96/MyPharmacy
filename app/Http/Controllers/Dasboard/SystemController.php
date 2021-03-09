@@ -11,7 +11,7 @@ class SystemController extends Controller
 {
     public function login(LoginRequest $request)
     {
-
+       
         $credential = [
             'email' => $request->email,
             'password' => $request->password
@@ -22,7 +22,7 @@ class SystemController extends Controller
         
         if (auth()->attempt($credential)) {
 
-            return redirect('dashboard/');
+            return redirect('admin/dashboard/');
             
         }else {
 

@@ -28,13 +28,12 @@ class RegisterRequest extends FormRequest
     
        
         switch ($method) {
-            case 'register':
+            case 'register': 
                 return [
                     'email' => ['required', 'unique:users', 'email'],
                     'name' => ['required'],
                     'phone' => ['required'],
                     'password'=>['required','min:8'],
-                    
                 ];
                 break;
                 

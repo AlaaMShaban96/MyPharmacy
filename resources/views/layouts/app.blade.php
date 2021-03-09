@@ -1,7 +1,10 @@
 @php
-$notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', function($q) {
+if (auth()->user()->status) {
+  $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', function($q) {
             $q->where('orders_pharmacies.status', 1);
-          })->take(8)->get();    
+          })->take(8)->get(); 
+}
+   
 @endphp
 <!DOCTYPE html>
 <html>
@@ -15,21 +18,17 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
-  <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
-  <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <link rel="stylesheet" href="{{asset('assets/vendor/nucleo/css/nucleo.css')}}" type="text/css">
+  <link rel="stylesheet" href="{{asset('assets/vendor/@fortawesome/fontawesome-free/css/all.min.css')}}" type="text/css">
   <!-- Page plugins -->
   <!-- Argon CSS -->
-  <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <link rel="stylesheet" href="{{asset('assets/css/argon.css?v=1.2.0')}}" type="text/css">
   <style>
     body{
         font-family: Sukar;
-    }
+      }
     </style>
     @livewireStyles
-
-    
-   
-   
   </head>
 
   <body>
@@ -55,58 +54,59 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
                   <i class="ni ni-zoom-split-in"></i>
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="ni ni-bell-55"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden"style="text-align: right;">
-                  <!-- Dropdown header -->
-                  <div class="px-3 py-3">
-                    <h6 class="text-sm text-muted m-0">لديك  <strong class="text-primary">{{$notifications->count()}}</strong> طلبات مرسلة الي الصيدالية</h6>
-                  </div>
-                  <!-- List group notfction -->
-                  <div class="list-group list-group-flush">
-                    @forelse ($notifications as $order)
-                    <a href="#!" class="list-group-item list-group-item-action">
-                      <div class="row align-items-center">
-                        <div class="col-auto">
-                          <!-- Avatar -->
-                          <img alt="Image placeholder" src="{{$order->user->image==""?'../assets/img/theme/team-1.jpg':$order->user->image}}" class="avatar rounded-circle">
-                        </div>
-                   
-
-                         <div class="col ml--2">
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                              <h4 class="mb-0 text-sm">{{$order->user->name}}</h4>
-                            </div>
-                            <div class="text-right text-muted">
-                              <small>{{$order->created_at->diffForHumans()}}</small>
-                            </div>
+              @if (auth()->user()->status)
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="ni ni-bell-55"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden"style="text-align: right;">
+                    <!-- Dropdown header -->
+                    <div class="px-3 py-3">
+                      <h6 class="text-sm text-muted m-0">لديك  <strong class="text-primary">{{$notifications->count()}}</strong> طلبات مرسلة الي الصيدالية</h6>
+                    </div>
+                    <!-- List group notfction -->
+                    <div class="list-group list-group-flush">
+                      @forelse ($notifications as $order)
+                      <a href="#!" class="list-group-item list-group-item-action">
+                        <div class="row align-items-center">
+                          <div class="col-auto">
+                            <!-- Avatar -->
+                            <img alt="Image placeholder" src="{{$order->user->image==""?asset('assets/img/theme/team-1.jpg'):$order->user->image}}" class="avatar rounded-circle">
                           </div>
-                          <p class="text-sm mb-0">{{$order->text}}</p>
+                    
+
+                          <div class="col ml--2">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div>
+                                <h4 class="mb-0 text-sm">{{$order->user->name}}</h4>
+                              </div>
+                              <div class="text-right text-muted">
+                                <small>{{$order->created_at->diffForHumans()}}</small>
+                              </div>
+                            </div>
+                            <p class="text-sm mb-0">{{$order->text}}</p>
+                          </div>
                         </div>
-                      </div>
-                    </a>         
-                    @empty
-                    <h3 class="text-center">لا يوجد اشعارات</h3>
-                    @endforelse
-                   
+                      </a>         
+                      @empty
+                      <h3 class="text-center">لا يوجد اشعارات</h3>
+                      @endforelse
+                    
+                    </div>
+                    <!-- View all -->
+                    @if (count($notifications)>8)
+                    <a href="{{url('/my-oreders')}}" class="dropdown-item text-center text-primary font-weight-bold py-3">عرض كل الطلبات</a>
+                    @endif
                   </div>
-                  <!-- View all -->
-                  @if (count($notifications)>8)
-                  <a href="{{url('/my-oreders')}}" class="dropdown-item text-center text-primary font-weight-bold py-3">عرض كل الطلبات</a>
-                  @endif
-                </div>
-              </li>
-             
+                </li>
+              @endif
             </ul>
             <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
               <li class="nav-item dropdown">
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
-                      <img alt="Image placeholder" src="{{auth()->user()->image==""?'assets/img/theme/team-4.jpg':auth()->user()->image}}">
+                      <img alt="Image placeholder" src="{{auth()->user()->image==""?asset('assets/img/theme/team-4.jpg'):auth()->user()->image}}">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
                       <span class="mb-0 text-sm  font-weight-bold">{{auth()->user()->name}}</span>
@@ -115,6 +115,8 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
                 </a>
                 <div class="dropdown-menu  dropdown-menu-right ">
                  
+                
+                @if (auth()->user()->status) 
                   <a href="{{url('/profile')}}"  class="dropdown-item">
                     <i class="ni ni-single-02"></i>
                     <span>حسابي</span>
@@ -123,15 +125,35 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
                     <i class="ni ni-settings-gear-65"></i>
                     <span>الصفحة الرئسية</span>
                   </a>
-                
                   <a href="{{url('/my-oreders')}}" class="dropdown-item">
                     <i class="ni ni-support-16"></i>
                     <span>طلباتي</span>
                   </a>
                   <a href="{{url('/records')}}" class="dropdown-item">
                     <i class="ni ni-collection"></i>
-                    <span>سجل الردود</span>
-                  </a>
+                    <spaPerformancen>سجل الردود</span>
+                  </a>                    
+                @else
+                <a href="{{url('admin/profile')}}"  class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  <span>حسابي</span>
+                </a>
+                <a href="{{url('admin/dashboard')}}" class="dropdown-item">
+                  <i class="ni ni-settings-gear-65"></i>
+                  <span>الصفحة الرئسية</span>
+                </a>
+                <a href="{{url('admin/users')}}" class="dropdown-item">
+                  <i class="ni ni-single-02"></i>
+                  
+                  <span>المستخدمين</span>
+                </a>
+                <a href="{{url('admin/pharmacies')}}" class="dropdown-item">
+                  <i class="ni ni-archive-2"></i>
+                  <span>الصيداليات</span>
+                </a>
+                    
+                @endif
+               
                   <div class="dropdown-divider"></div>
                   <a href="#!" class="dropdown-item">
                     <i class="ni ni-user-run"></i>
@@ -152,17 +174,18 @@ $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', functi
   
     </div>
 
-    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/js-cookie/js.cookie.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js')}}"></script>
     <!-- Optional JS -->
-    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script src="{{asset('assets/vendor/chart.js/dist/Chart.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
     <!-- Argon JS -->
-    <script src="assets/js/argon.js?v=1.2.0"></script>
- 
+    
+    <script src="{{asset('assets/js/argon.js?v=1.2.0')}}"></script>
+
   @livewireScripts
 </body>
 

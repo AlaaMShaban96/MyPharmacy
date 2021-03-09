@@ -5,15 +5,20 @@ namespace App\Http\Livewire;
 use App\Models\Order;
 use Livewire\Component;
 
+use Livewire\WithPagination;
+
+
 class MyOrders extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $orders;
     public $order = ['price','text' ];
     public function render()
     {
         $this->orders=auth()->user()->pharmacy->orders()->whereHas('pharmacies', function($q) {
             $q->where('orders_pharmacies.status', 1);
-        })->get();
+        })->paginate(7);
    
         return view('livewire.my-orders',['orders'=>$this->orders]);
     }

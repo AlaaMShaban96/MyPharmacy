@@ -18,7 +18,10 @@ class CreatePharmaciesTable extends Migration
             $table->text('name')->nullable();
             $table->text('x')->nullable();
             $table->text('y')->nullable();
-          
+            $table->text('address')->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
