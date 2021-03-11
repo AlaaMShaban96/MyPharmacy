@@ -23,6 +23,7 @@ class UserSeed extends Seeder
                 'email' => 'alzwyastrest@gmail.com',
                 'phone' => '0927780208',
                 'pharmacy_id' => 1,
+                'status' => 1,
                 'password' => Hash::make('Nano1234'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -32,6 +33,7 @@ class UserSeed extends Seeder
                 'email' => 'altebe@gmail.com',
                 'phone' => '0927780208',
                 'pharmacy_id' => 2,
+                'status' => 1,
                 'password' => Hash::make('Nano1234'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -41,16 +43,18 @@ class UserSeed extends Seeder
                 'email' => 'super@nano-tech.ly',
                 'phone' => '0927780208',
                 'pharmacy_id' => null,
-                'password' => Hash::make('NanoTechAdmin'),
+                'status' => 0,
+                'password' => Hash::make('12345678'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
                 'name' => 'علاء 🌘',
-                'email' => 'super2@nano-tech.ly',
+                'email' => 'alaa-admin@nano-tech.ly',
                 'phone' => '0927780208',
                 'pharmacy_id' => null,
-                'password' => Hash::make('NanoTechAdmin'),
+                'status' => 0,
+                'password' => Hash::make('12345678'),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]
