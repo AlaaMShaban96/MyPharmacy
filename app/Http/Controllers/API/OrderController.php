@@ -23,6 +23,9 @@ class OrderController extends Controller
     }
     public function create(OrderRequest $request)
     {
+        try {
+            //code...
+       
         $data=$request->all();
         $data['image']=$this->uploadeImages($request);
         $data['user_id']=auth()->user()->id;
@@ -35,6 +38,9 @@ class OrderController extends Controller
             Order::create($data);
         }
         return response()->json(['response'=>'تم ارسال الطلب بنجاح'], 200);
+        } catch (\Throwable $th) {
+            return $th;
+        }
     }
     public function destroy(Order $order)
     {

@@ -14,12 +14,17 @@ class RegisterController extends Controller
 {
     public function register(RegisterRequest $request)
     {
-        $request['password'] = Hash::make($request->password);
-        if (isset( $request->photo)) {
-            $request['image']=$this->uploadeImages( $request);
-        } 
-        $user = User::create($request->all());
-        return new UserResourc($user);
+        try {
+            $request['password'] = Hash::make($request->password);
+            if (isset( $request->photo)) {
+                $request['image']=$this->uploadeImages( $request);
+            } 
+            $user = User::create($request->all());
+            return new UserResourc($user);
+        } catch (\Throwable $th) {
+            return$th;
+        }
+       
     }
     public function login(LoginRequest $request)
     {
