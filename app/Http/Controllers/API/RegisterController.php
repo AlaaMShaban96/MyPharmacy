@@ -38,7 +38,6 @@ class RegisterController extends Controller
     }
     private function uploadeImages( $request)
     {
-        dd($request);
         $imageName = time().time().".png";
 
         $path ="storage/". $request->file('photo')->storeAs('user/image', $imageName, 'public');
