@@ -27,7 +27,7 @@ class OrderController extends Controller
         $data['image']=$this->uploadeImages($request);
         $data['user_id']=auth()->user()->id;
         if (isset($data['pharmacy_id'])) {
-           
+            $data['public']=false;
             $order=Order::create($data);
             $pharmacy=Pharmacy::find($data['pharmacy_id']);
             $pharmacy->orders()->attach($order->id,['status'=>1]);

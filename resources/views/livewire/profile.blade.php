@@ -71,7 +71,7 @@
                         <label class="form-control-label" for="input-last-name"> خط العرض علي الخريطة</label>
                         <input type="text" id="input-last-name" class="form-control"wire:model.lazy="user.y" placeholder="y">
                       </div>
-                    </div>
+                    </div> 
                     {{-- <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-last-name"> صورة شعار الصيدالية</label>

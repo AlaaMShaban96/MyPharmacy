@@ -19,6 +19,7 @@ class Orders extends Migration
             $table->text('name')->nullable();
             $table->text('text')->nullable();
             $table->boolean('status')->default(true);
+            $table->boolean('public')->default(true);
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             

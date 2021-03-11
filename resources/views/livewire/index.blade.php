@@ -13,7 +13,7 @@
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">الطلبات التي تم الرد عليها</h5>
-                        <span class="h2 font-weight-bold mb-0">{{$myOrderNumber}}</span>
+                        <span class="h1 font-weight-bold mb-0">{{$myOrderNumber}}</span>
                       </div>
                       <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -34,7 +34,7 @@
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">طلباتي</h5>
-                        <span class="h2 font-weight-bold mb-0">2,356</span>
+                        <span class="h1 font-weight-bold mb-0">{{auth()->user()->pharmacy->orders()->wherePivot('text',null)->count()}}</span>
                       </div>
                       <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
@@ -54,12 +54,12 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">عدد الطلبات العامة</h5>
-                        <span class="h2 font-weight-bold mb-0">{{$allOrdersNumber}}</span>
+                        <h5 class="card-title text-uppercase text-muted mb-0">تاريخ اليوم</h5>
+                        <span class="h1 font-weight-bold mb-0">{{Carbon\Carbon::now()->format('d-m-Y')}}</span>
                       </div>
                       <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                          <i class="ni ni-money-coins"></i>
+                          <i class="ni ni-watch-time"></i>
                         </div>
                       </div>
                     </div>
@@ -107,7 +107,7 @@
                     </tr>
                   </thead>
                   <tbody class="list">
-                    @foreach ($orders as $key=> $order)
+                    @foreach ($orders->where('public',true) as $key=> $order)
                     @if ($order->pharmacies->where('id',auth()->user()->pharmacy->id)->count()==0)
                         
                   

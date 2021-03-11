@@ -1,8 +1,13 @@
 @php
 if (auth()->user()->status) {
-  $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', function($q) {
+  if (isset(auth()->user()->pharmacy->orders)) {
+    $notifications=auth()->user()->pharmacy->orders()->whereHas('pharmacies', function($q) {
             $q->where('orders_pharmacies.status', 1);
           })->take(8)->get(); 
+  }else {
+    $notifications=[];
+  }
+  
 }
    
 @endphp
@@ -62,7 +67,7 @@ if (auth()->user()->status) {
                   <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden"style="text-align: right;">
                     <!-- Dropdown header -->
                     <div class="px-3 py-3">
-                      <h6 class="text-sm text-muted m-0">لديك  <strong class="text-primary">{{$notifications->count()}}</strong> طلبات مرسلة الي الصيدالية</h6>
+                      <h6 class="text-sm text-muted m-0">لديك  <strong class="text-primary">{{($notifications !=[])?$notifications->count():0}}</strong> طلبات مرسلة الي الصيدالية</h6>
                     </div>
                     <!-- List group notfction -->
                     <div class="list-group list-group-flush">

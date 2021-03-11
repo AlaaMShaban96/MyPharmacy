@@ -31,8 +31,6 @@ class Login extends Component
         // $this->validateOnly($propertyName);
 
         if (auth()->attempt($this->user)) {
-            // dd(auth()->user());
-
            
                 if (auth()->user()->status) {
                     return redirect('dashboard/');

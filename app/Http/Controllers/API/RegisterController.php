@@ -17,7 +17,7 @@ class RegisterController extends Controller
         $request['password'] = Hash::make($request->password);
         if (isset( $request->photo)) {
             $request['image']=$this->uploadeImages( $request);
-        }
+        } 
         $user = User::create($request->all());
         return new UserResourc($user);
     }

@@ -34,6 +34,7 @@ class Profile extends Component
     }
     public function mount()
     {
+        // dd(auth()->user()->pharmacy);
         $this->user['name']=auth()->user()->pharmacy->name;
         $this->user['username']=auth()->user()->name;
         $this->user['x']=auth()->user()->pharmacy->x;

@@ -12,13 +12,14 @@ class MyOrders extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $orders;
+    private  $orders;
     public $order = ['price','text' ];
     public function render()
     {
-        $this->orders=auth()->user()->pharmacy->orders()->whereHas('pharmacies', function($q) {
-            $q->where('orders_pharmacies.status', 1);
-        })->paginate(7);
+        if (auth()->user()->pharmacy->orders()->count() !=0) {
+            $this->orders=auth()->user()->pharmacy->orders()->wherePivot('status',1)->paginate(7);
+        }
+    //    dd($this->orders);
    
         return view('livewire.my-orders',['orders'=>$this->orders]);
     }

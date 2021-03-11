@@ -1,73 +1,130 @@
 <div class="container-fluid mt-6 text-right">
+@if ($create || $edit)
+  
+
+    @if(Session::has('message'))
+    <span class="alert {{ Session::get('alert-class') }}" role="alert">
+      {{ Session::get('message') }}
+    </span>  
+    @else
+    
+
+    
+@endif
 
   <div class="card ">
+  
     <div class="bg-white p-3 mb-3 text-center">
+      <div class=" text-left">
+          <button type="button" class="btn btn-warning "  wire:click="closeForm()">الغاء</button>
+      </div>
+
       <h3>معلومات الصيدالية</h3>
+
       <br>
       <div class="form-row ">
           <div class="form-group col-md-4">
               <label for="inputPassword4">كلمة السر</label>
               <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                  <input type="password" class="form-control" value='' name='password' id="inlineFormInputGroup" placeholder="Ac@+_hgkjd *****Udg" required>
-                  <div class="input-group-addon"></div>
+                  <input type="password" class="form-control @error('pharmacy.password') is-invalid @enderror" wire:model.lazy='pharmacy.password' name='password'  placeholder="******" required>
+                  <div id="validationServer05Feedback" class="invalid-feedback">
+                    @error('pharmacy.password') {{$message}} @enderror
+                  </div>
               </div> 
           </div>
           <div class="form-group col-md-4">
               <label for="inputPassword4">البريد الالكتروني</label>
               <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                  <input type="email" class="form-control" value='' name='email' id="inlineFormInputGroup" placeholder="البريد الالكتروني" required>
-                  <div class="input-group-addon"></div>
+                  <input type="email" class="form-control @error('pharmacy.email') is-invalid @enderror" wire:model.lazy='pharmacy.email' name='email'  placeholder="البريد الالكتروني" required>
+                  <div id="validationServer05Feedback" class="invalid-feedback">
+                    @error('pharmacy.email') {{$message}} @enderror
+                  </div>
               </div> 
           </div>
           <div class="form-group col-md-4">
               <label for="inputPassword4">اسم الصيدالية</label>
               <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                  <input type="text" class="form-control" value='' name='name' id="inlineFormInputGroup" placeholder="اسم الصيدالية" required>
-                  <div class="input-group-addon"></div>
+                  <input type="text" class="form-control @error('pharmacy.name') is-invalid @enderror" wire:model.lazy='pharmacy.name' name='name'  placeholder="اسم الصيدالية" required>
+                  <div id="validationServer05Feedback" class="invalid-feedback">
+                    @error('pharmacy.name') {{$message}} @enderror
+                  </div>
               </div> 
           </div>
-  
+
       </div>
+      
       <div class="form-row ">
           <div class="form-group col-md-2">
-              <label for="inputAddress">احداتيات ( Y )</label>
+              <label for="inputAddress">شعار الصيدالية</label>
+              <div class="input-group">
+                <input type="file" class="form-control @error('pharmacy.photo') is-invalid @enderror" wire:model.lazy='pharmacy.photo'  aria-label="Upload">
+                <div id="validationServer05Feedback" class="invalid-feedback">
+                  @error('pharmacy.photo') {{$message}} @enderror
+                </div>
+              </div>
+          </div>
+         
+          <div class="form-group col-md-2">
+              <label for="inputAddress">احداتيات ( Y ) </label>
               <div class="input-group ">
-                  <input type="text" name='mc_api' value='' class="form-control" id="inlineFormInputGroup" placeholder="MC API">
-                  <div class="input-group-addon"></div>
+                  <input type="text" name='y' wire:model.lazy='pharmacy.y' class="form-control @error('pharmacy.y') is-invalid @enderror"  placeholder="y location">
+                  <div id="validationServer05Feedback" class="invalid-feedback">
+                    @error('pharmacy.y') {{$message}} @enderror
+                  </div>
               </div> 
           </div>
           <div class="form-group col-md-2">
-              <label for="inputAddress">احداتيات ( X )</label>
+              <label for="inputAddress">احداتيات ( X ) </label>
               <div class="input-group ">
-                  <input type="text" name='admin_email' value='' class="form-control" id="inlineFormInputGroup" placeholder="Admin Gmail">
-                  <div class="input-group-addon"></div>
+                  <input type="text" name='x' wire:model.lazy='pharmacy.x' class="form-control @error('pharmacy.x') is-invalid @enderror"  placeholder=" x location">
+                  <div id="validationServer05Feedback" class="invalid-feedback">
+                    @error('pharmacy.x') {{$message}} @enderror
+                  </div>
               </div> 
           </div>
-          <div class="form-group col-md-8">
+          <div class="form-group col-md-2">
+            <label for="inputAddress">رقم الهاتف </label>
+            <div class="input-group ">
+                <input type="number" name='phone' wire:model.lazy='pharmacy.phone' class="form-control @error('pharmacy.phone') is-invalid @enderror"  placeholder="09x-xxxxxxx">
+                <div id="validationServer05Feedback" class="invalid-feedback">
+                  @error('pharmacy.phone') {{$message}} @enderror
+                </div>
+            </div> 
+        </div>
+          <div class="form-group col-md-4">
               <label for="inputAddress">موقع الصيدالية </label>
               <div class="input-group ">
-                  <input type="text" name='admin_email' value='' class="form-control" id="inlineFormInputGroup" placeholder="Admin Gmail">
-                  <div class="input-group-addon"></div>
+                  <input type="text" name='address' wire:model.lazy='pharmacy.address' class="form-control @error('pharmacy.address') is-invalid @enderror "  placeholder="صيدلية الطبي - شارع الزاوية">
+                  <div id="validationServer05Feedback" class="invalid-feedback">
+                    @error('pharmacy.address') {{$message}} @enderror
+                  </div>
               </div> 
           </div>
       </div>
-      <div class="form-group col-md-4">
-          <img id="blah"  onclick='selectImage()' src=''  width="100" height="100" />
-              <div class="custom-file" style="display: none;">
-                  <input name='icon'  onchange="ValidateSize(this);document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])" name='main_imageValue' type="file" class="custom-file-input" id="validatedCustomFile" >
-              </div>
-              <label for="inputAddress" class='ml-5'>صورة الشعار</label>
-      </div>
-  </div>
-  </div>
+      @if ($create)
+        <button type="button" wire:click="store()" class="btn btn-success m-3 " @if (!($errors->any() || $submit)) disabled @endif>اضافة صيدالية</button>
+      @else
+        <button type="button" wire:click="update()" class="btn btn-primary m-3 " @if ($errors->any()) disabled @endif>تعديل صيدالية</button>
+      @endif
 
+    </div>
+  </div>  
+@else
 
-  <button type="button" class="btn btn-success m-3 ">اضافة صيدالية</button>
+<button type="button" wire:click="create()" class="btn btn-success m-3 ">اضافة صيدالية</button>
+
+@endif
 
     <div class="row">
 
       <div class="col">
-      
+        @if(Session::has('done-message'))
+          <div class="text-left">
+            <span class="alert {{ Session::get('alert-class') }}" role="alert">
+              {{ Session::get('done-message') }}
+            </span> 
+          </div> 
+        @endif
           <!-- Card header -->
           <div class="card-header border-0 ">
             <h3 class="mb-0 text-center">الصيداليات المسجلة في النظام</h3>
@@ -100,7 +157,7 @@
                      <td>
                         <span class="badge badge-dot">
                         
-                        <button type="button" class="btn btn-warning "  wire:click="destroy({{$pharmacy->id}})">حدف</button>
+                        <button type="button" class="btn btn-danger "  wire:click="destroy({{$pharmacy->id}})">حدف</button>
                         </span>
                     </td>
                                    
@@ -114,7 +171,7 @@
 
 
                           <a href="#" class="avatar rounded-circle ">
-                            <img alt="Image placeholder" class="" src="../assets/img/theme/bootstrap.jpg">
+                            <img alt="Image placeholder" class="" src="{{isset($pharmacy->user->image)?asset($pharmacy->user->image):'../assets/img/theme/bootstrap.jpg'}}">
                         </a>
                   </th>
                     
