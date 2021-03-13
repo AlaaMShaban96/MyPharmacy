@@ -14,7 +14,7 @@ class Index extends Component
 {
     use WithPagination , WithFileUploads;
   
-    public bool $edit=false,$create=false,$submit=false;
+    public bool $edit=false,$create=false,$submit=true;
     protected $paginationTheme = 'bootstrap';
     public Pharmacy $pharmacyRef ;
     public $pharmacy = ['name'=>"",'x'=>"",'y'=>"",'email'=>"",'phone'=>"",'password'=>"",'address'=>"",'photo'=>"",'id'=>''];
@@ -28,26 +28,26 @@ class Index extends Component
         'pharmacy.photo' => 'image|max:1024',
         'pharmacy.password' => 'required|min:8',
     ];
-    public function updated($propertyName)
-    {
-        if (
-        isset($this->pharmacy['name'])&&
-        isset($this->pharmacy['x']) &&
-        isset($this->pharmacy['y']) &&
-        isset($this->pharmacy['email']) &&
-        isset($this->pharmacy['phone']) &&
-        isset($this->pharmacy['password']) &&
-        isset($this->pharmacy['address']) ) {
-            $this->submit=true;
-        }else {
-            $this->submit=false;
-        }
-        if ($this->edit==true && $propertyName=='pharmacy.email') {
+    // public function updated($propertyName)
+    // {
+    //     if (
+    //     isset($this->pharmacy['name'])&&
+    //     isset($this->pharmacy['x']) &&
+    //     isset($this->pharmacy['y']) &&
+    //     isset($this->pharmacy['email']) &&
+    //     isset($this->pharmacy['phone']) &&
+    //     isset($this->pharmacy['password']) &&
+    //     isset($this->pharmacy['address']) ) {
+    //         $this->submit=true;
+    //     }else {
+    //         $this->submit=false;
+    //     }
+    //     if ($this->edit==true && $propertyName=='pharmacy.email') {
 
-        }else{
-            $this->validateOnly($propertyName);
-        }
-    } 
+    //     }else{
+    //         $this->validateOnly($propertyName);
+    //     }
+    // } 
     public function render()
     {
         $pharmacies=Pharmacy::paginate(10);
@@ -57,9 +57,11 @@ class Index extends Component
     public function destroy(Pharmacy $pharmacy)
     {
         try {
-            if (isset($pharmacy->user->image)) {
-                unlink($pharmacy->user->image);
-            }
+            // dd($pharmacy,$pharmacy->user);
+
+            // if (isset($pharmacy->user->image)) {
+            //     unlink($pharmacy->user->image);
+            // }
             User::find($pharmacy->user->id)->delete();
             $pharmacy->delete();
 
@@ -79,15 +81,26 @@ class Index extends Component
     }
     public function store()
     {
-        $this->validate();
-        try {
-            $this->pharmacy['password']=Hash::make($this->pharmacy['password']);
-            if (isset($this->pharmacy['photo'])) {
-                $this->pharmacy['image']=$this->uploadeImages( $this->pharmacy['photo']);
+        $this->pharmacy=  $this->validate([
+            'pharmacy.name' => 'required|max:80',
+            'pharmacy.x' => 'required|numeric',
+            'pharmacy.y' => 'required|numeric',
+            'pharmacy.email' => 'required|unique:users,email',
+            'pharmacy.phone' => 'required|numeric',
+            'pharmacy.address' => 'required|max:100',
+            'pharmacy.photo' => 'image|max:1024',
+            'pharmacy.password' => 'required|min:8',
+        ]);
+        // dd($this->pharmacy);
+         try {
+            $this->pharmacy['pharmacy']['password']=Hash::make($this->pharmacy['pharmacy']['password']);
+            if (isset($this->pharmacy['pharmacy']['photo'])) {
+                $this->pharmacy['pharmacy']['image']=$this->uploadeImages( $this->pharmacy['pharmacy']['photo']);
             }
-            $user=User::create($this->pharmacy);
-            $this->pharmacy['user_id']=$user->id;
-            $pharmacy=$user->pharmacy()->create($this->pharmacy);
+            // dd($this->pharmacy);
+            $user=User::create($this->pharmacy['pharmacy']);
+            $this->pharmacy['pharmacy']['user_id']=$user->id;
+            $pharmacy=$user->pharmacy()->create($this->pharmacy['pharmacy']);
             $user->pharmacy_id=$pharmacy->id;
             $user->save();
             $this->clearInput();
@@ -95,6 +108,7 @@ class Index extends Component
             Session::flash('alert-class', 'alert-success'); 
         } catch (\Throwable $th) {
             // $user->delete();
+            dd($th);
             Session::flash('message', 'فشلة عملية الاضافة'); 
             Session::flash('alert-class', 'alert-danger');
         }
@@ -128,7 +142,7 @@ class Index extends Component
             'pharmacy.password' => 'min:8',
         ]);
 
-            // try {
+            try {
                 if ($this->pharmacy['pharmacy']['password'] !="") {
                     $this->pharmacy['pharmacy']['password']=Hash::make($this->pharmacy['pharmacy']['password']);
 
@@ -153,11 +167,11 @@ class Index extends Component
                 Session::flash('done-message', ' تم التعديل بنجاح'); 
                 Session::flash('alert-class', 'alert-success'); 
     
-            // } catch (\Throwable $th) {
-               
-            //     Session::flash('done-message', 'فشلة عملية التعديل'); 
-            //     Session::flash('alert-class', 'alert-danger');
-            // }
+                } catch (\Throwable $th) {
+                
+                    Session::flash('done-message', 'فشلة عملية التعديل'); 
+                    Session::flash('alert-class', 'alert-danger');
+                }
            
         
     }
@@ -173,6 +187,7 @@ class Index extends Component
         $this->pharmacy['phone']="";
         $this->pharmacy['address']="";
         $this->pharmacy['password']="";
+        $this->pharmacy['photo']="";
 
     }
     private function clearInput(){
@@ -183,6 +198,8 @@ class Index extends Component
         $this->pharmacy['phone']="";
         $this->pharmacy['address']="";
         $this->pharmacy['password']="";
+        $this->pharmacy['photo']="";
+
 
     }
     private function uploadeImages( $request)

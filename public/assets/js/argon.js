@@ -832,10 +832,10 @@ var BarsChart = (function() {
 
 
 	//
-	// Methods
+	// Methods 
 	//
 	
-
+  
 	// Init chart
 	function initChart($chart) {
 
@@ -843,10 +843,11 @@ var BarsChart = (function() {
 		var ordersChart = new Chart($chart, {
 			type: 'bar',
 			data: {
-				labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				labels: ['01', '02', '03', '04', '05', '06','07', '08', '09', '10', '11', '12'],
 				datasets: [{
-					label: 'Sales',
-					data: [25, 20, 30, 33, 17, 29]
+				  label: 'عدد الطلبات',
+					data: data
+					// data: [30, 20, 30, 33, 17, 29,30, 20, 30, 33, 17, 29]
 				}]
 			}
 		});
@@ -920,7 +921,7 @@ var SalesChart = (function() {
         labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
           label: 'Performance',
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+		  data: data
         }]
       }
     });

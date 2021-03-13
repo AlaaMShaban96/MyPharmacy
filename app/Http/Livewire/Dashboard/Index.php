@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Dashboard;
 
+use Carbon\Carbon;
 use App\Models\User;
 use App\Models\Order;
 use Livewire\Component;
@@ -15,7 +16,13 @@ class Index extends Component
         $pharmacies=Pharmacy::all();
         $orders=Order::all();
         $orderCount=Order::whereHas('pharmacies', function ($q) {$q->where('status',2);})->count();
-        
-        return view('livewire.dashboard.index',['users'=>$users,'pharmacies'=>$pharmacies,'orders'=>$orders,'orderCount'=>$orderCount]);
+        $months=Order::select('id', 'created_at')
+        ->get()
+        ->groupBy(function($date) {
+            // return Carbon::parse($date->created_at)->format('Y'); // grouping by years
+            return Carbon::parse($date->created_at)->format('m'); // grouping by months
+        });
+        // dd($ss);
+        return view('livewire.dashboard.index',compact('users','pharmacies','orders','orderCount','months'));
     }
 }

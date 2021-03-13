@@ -19,7 +19,6 @@ class MyOrders extends Component
         if (auth()->user()->pharmacy->orders()->count() !=0) {
             $this->orders=auth()->user()->pharmacy->orders()->wherePivot('status',1)->paginate(7);
         }
-    //    dd($this->orders);
    
         return view('livewire.my-orders',['orders'=>$this->orders]);
     }

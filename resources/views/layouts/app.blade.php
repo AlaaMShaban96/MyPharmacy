@@ -32,6 +32,24 @@ if (auth()->user()->status) {
     body{
         font-family: Sukar;
       }
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,.8);
+        z-index: 999;
+        opacity: 1;
+        transition: all 0.5s;
+    }
+
+    /*Spinner Styles*/
+    .lds-dual-ring {
+        display: inline-block;
+        /* width: 80px;
+        height: 80px; */
+    }
     </style>
     @livewireStyles
   </head>
@@ -139,10 +157,7 @@ if (auth()->user()->status) {
                     <spaPerformancen>سجل الردود</span>
                   </a>                    
                 @else
-                <a href="{{url('admin/profile')}}"  class="dropdown-item">
-                  <i class="ni ni-single-02"></i>
-                  <span>حسابي</span>
-                </a>
+               
                 <a href="{{url('admin/dashboard')}}" class="dropdown-item">
                   <i class="ni ni-settings-gear-65"></i>
                   <span>الصفحة الرئسية</span>
@@ -170,14 +185,73 @@ if (auth()->user()->status) {
           </div>
         </div>
       </nav>
-      
+    
           <!-- your content here -->
           {{ $slot }}
           {{-- @yield('content') --}}
 
          
-  
+       
     </div>
+
+    <script>
+      Object.size = function(obj) {
+          var size = 0,
+            key;
+          for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+          }
+          return size;
+        };
+              console.log(Object.size(months));
+        var data=[0,0,0,0,0,0,0,0,0,0,0,0];
+              for (key in months) {
+                console.log(key);
+
+                switch (key) {
+                  case '01':
+                    data[0]=Object.size(months[key]);
+                    break;
+                  case '02':
+                    data[1]=Object.size(months[key]);
+                    break;
+                  case '03':
+                    data[2]=Object.size(months[key]);
+                    break;
+                  case '04':
+                    data[3]=Object.size(months[key]);
+                    break;
+                  case '05':
+                    data[4]=Object.size(months[key]);
+                    break;
+                  case '06':
+                    data[5]=Object.size(months[key]);
+                    break;
+                  case '07':
+                    data[6]=Object.size(months[key]);
+                    break;
+                  case '08':
+                    data[7]=Object.size(months[key]);
+                    break;
+                  case '09':
+                    data[8]=Object.size(months[key]);
+                    break;
+                  case '10':
+                    data[9]=Object.size(months[key]);
+                    break;
+                  case '11':
+                    data[10]=Object.size(months[key]);
+                    break;
+                  case '12':
+                    data[11]=Object.size(months[key]);
+                    break;
+                
+                 
+                }
+                
+              };
+              console.log(data);
+    </script>
 
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
     <script src="{{asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
@@ -190,7 +264,7 @@ if (auth()->user()->status) {
     <!-- Argon JS -->
     
     <script src="{{asset('assets/js/argon.js?v=1.2.0')}}"></script>
-
+   
   @livewireScripts
 </body>
 

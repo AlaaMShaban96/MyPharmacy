@@ -10,5 +10,5 @@ Route::prefix('admin')->group(function () {
   Route::get('/users', User::class);
   Route::get('/pharmacies', Pharmacy::class);
  
-});
+}); 
 
