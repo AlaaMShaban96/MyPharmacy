@@ -34,15 +34,21 @@ class Login extends Component
             'user.email' => 'required',
             'user.password' => 'required|min:8',
         ]);
-        if (User::query()->where('email',$this->user['user']['email'])->where('status',1)->exists()) {
+        if (User::query()->where('email',$this->user['user']['email'])->where('status','!=',3)->exists()) {
+           if (auth()->attempt($this->user['user'])) {
+                if (auth()->user()->status) {
+                    return redirect('dashboard/');
 
-            if (auth()->user()->status) {
-                return redirect('dashboard/');
+                }else{
 
+                    return redirect('admin/dashboard/');
+                }
             }else{
 
-                return redirect('admin/dashboard/');
+                Session::flash('done-message', 'كلمة السر او البريد اﻹلكتروني غير صحيح'); 
+                Session::flash('alert-class', 'alert-danger');
             }
+            
         }else{
             Session::flash('done-message', ' حساب المستخدم غير مفعل او غير موجود'); 
             Session::flash('alert-class', 'alert-danger');

@@ -9,6 +9,7 @@ use App\Http\Livewire\Records;
 use App\Http\Livewire\MyOrders;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\Dasboard\SystemController;
 
 /*
@@ -30,4 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/my-oreders', MyOrders::class);
     Route::get('/records', Records::class);
     Route::get('/profile', Profile::class);
+    Route::get('/logout', [RegisterController::class,'logout']);
+
 });
