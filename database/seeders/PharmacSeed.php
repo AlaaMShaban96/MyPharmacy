@@ -22,6 +22,7 @@ class PharmacSeed extends Seeder
                 'x'=>'32.726405',
                 'y'=>'12.703670',
                 'address'=>'صيدلية الطبي - شارع الزاوية',
+                'user_id'=>1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
@@ -30,6 +31,7 @@ class PharmacSeed extends Seeder
                 'x'=>'32.726405',
                 'y'=>'12.703670',
                 'address'=>'صيدلية الطبي - شارع الزاوية',
+                'user_id'=>2,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ]

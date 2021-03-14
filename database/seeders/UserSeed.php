@@ -40,7 +40,7 @@ class UserSeed extends Seeder
             ],
             [
                 'name' => 'هشام القوي',
-                'email' => 'super@nano-tech.ly',
+                'email' => 'admin2@nano-tech.ly',
                 'phone' => '0927780208',
                 'pharmacy_id' => null,
                 'status' => 0,
@@ -49,8 +49,8 @@ class UserSeed extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'name' => 'علاء 🌘',
-                'email' => 'alaa-admin@nano-tech.ly',
+                'name' => 'علاء',
+                'email' => 'admin@nano-tech.ly',
                 'phone' => '0927780208',
                 'pharmacy_id' => null,
                 'status' => 0,
