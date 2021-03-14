@@ -24,12 +24,29 @@
   {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"> --}}
   <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
 
-<style>
+  <style>
     body{
         font-family: Sukar;
+      }
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,.8);
+        z-index: 999;
+        opacity: 1;
+        transition: all 0.5s;
     }
-    
-</style>
+
+    /*Spinner Styles*/
+    .lds-dual-ring {
+        display: inline-block;
+        /* width: 80px;
+        height: 80px; */
+    }
+    </style>
 @livewireStyles
 </head>
 

@@ -22,16 +22,12 @@ use App\Http\Controllers\Dasboard\SystemController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome2');
-// });
-// Route::get('/login', function () {
-//     return view('login');
-// });
-// Route::get('dashboard/', [DashboardController::class,'index']);
 Route::get('/', Login::class)->name('login');
-Route::post('login/', [SystemController::class,'login']);
-Route::get('/dashboard', Index::class);
-Route::get('/my-oreders', MyOrders::class);
-Route::get('/records', Records::class);
-Route::get('/profile', Profile::class);
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('login/', [SystemController::class,'login']);
+    Route::get('/dashboard', Index::class);
+    Route::get('/my-oreders', MyOrders::class);
+    Route::get('/records', Records::class);
+    Route::get('/profile', Profile::class);
+});

@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\Session;
 
 class Login extends Component
 {
@@ -22,26 +24,28 @@ class Login extends Component
     { 
         return view('livewire.login')->layout('login');
     }
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
-    } 
+    // public function updated($propertyName)
+    // {
+    //     $this->validateOnly($propertyName);
+    // } 
     public function login()
     {
-        // $this->validateOnly($propertyName);
+        $this->user=  $this->validate([
+            'user.email' => 'required',
+            'user.password' => 'required|min:8',
+        ]);
+        if (User::query()->where('email',$this->user['user']['email'])->where('status',1)->exists()) {
 
-        if (auth()->attempt($this->user)) {
-           
-                if (auth()->user()->status) {
-                    return redirect('dashboard/');
+            if (auth()->user()->status) {
+                return redirect('dashboard/');
 
-                }else{
+            }else{
 
-                    return redirect('admin/dashboard/');
-
-                }
-            
-            
+                return redirect('admin/dashboard/');
+            }
+        }else{
+            Session::flash('done-message', ' حساب المستخدم غير مفعل او غير موجود'); 
+            Session::flash('alert-class', 'alert-danger');
         }
     }
 } 
