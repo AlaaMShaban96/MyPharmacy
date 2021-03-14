@@ -157,38 +157,40 @@
               </thead>
               <tbody class="list">
                   @foreach ($pharmacies as $pharmacy)
-                      
+                      @if ($pharmacy->user->status !=3)
+                          <tr>
+
+                            <td>
+                              <span class="badge badge-dot">
+                              
+                              <button type="button" class="btn btn-primary" wire:click="edit({{$pharmacy->id}})">تعديل</button>
+                              </span>
+                            </td>
+                            <td>
+                              <span class="badge badge-dot">
+                              
+                              <button type="button" class="btn btn-danger "  wire:click="destroy({{$pharmacy->id}})">حدف</button>
+                              </span>
+                            </td>
+                                        
+                            <td class="budget">
+                              {{$pharmacy->created_at->format('d-m-Y') }}
+                            </td>
+                            <td class="budget">
+                            {{$pharmacy->name}}
+                          </td>
+                            <th scope="row">
+      
+      
+                                <a href="#" class="avatar rounded-circle ">
+                                  <img alt="Image placeholder" class="" src="{{isset($pharmacy->user->image)?asset($pharmacy->user->image):'../assets/img/theme/bootstrap.jpg'}}">
+                              </a>
+                            </th>
+                          
+                          </tr>
+                      @endif
                   
-                    <tr>
-
-                     <td>
-                        <span class="badge badge-dot">
-                        
-                        <button type="button" class="btn btn-primary" wire:click="edit({{$pharmacy->id}})">تعديل</button>
-                        </span>
-                    </td>
-                     <td>
-                        <span class="badge badge-dot">
-                        
-                        <button type="button" class="btn btn-danger "  wire:click="destroy({{$pharmacy->id}})">حدف</button>
-                        </span>
-                    </td>
-                                   
-                    <td class="budget">
-                        {{$pharmacy->created_at->format('d-m-Y') }}
-                    </td>
-                    <td class="budget">
-                      {{$pharmacy->name}}
-                    </td>
-                    <th scope="row">
-
-
-                          <a href="#" class="avatar rounded-circle ">
-                            <img alt="Image placeholder" class="" src="{{isset($pharmacy->user->image)?asset($pharmacy->user->image):'../assets/img/theme/bootstrap.jpg'}}">
-                        </a>
-                  </th>
-                    
-                    </tr>
+                  
                 @endforeach
               </tbody>
             </table>

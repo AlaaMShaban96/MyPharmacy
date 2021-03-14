@@ -36,9 +36,10 @@ class Index extends Component
     public function destroy(Pharmacy $pharmacy)
     {
         try {
-
-            User::find($pharmacy->user->id)->delete();
-            $pharmacy->delete();
+            $pharmacy->user->status =3;
+            $pharmacy->user->save();
+            // User::find($pharmacy->user->id)->delete();
+            // $pharmacy->delete();
 
             Session::flash('done-message', ' تم الحذف بنجاح'); 
             Session::flash('alert-class', 'alert-success'); 

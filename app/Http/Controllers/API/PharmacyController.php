@@ -11,6 +11,10 @@ class PharmacyController extends Controller
 {
     public function index()
     {
-        return new PharmaciesResource(Pharmacy::all());
+       $pharmacies= Pharmacy::whereHas('user', function($q){
+            $q->where('status', '!=', 3);
+        })->get();
+        
+        return new PharmaciesResource($pharmacies);
     }
-}
+} 
