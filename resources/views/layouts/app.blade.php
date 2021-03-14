@@ -129,7 +129,7 @@ if (auth()->user()->status) {
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
-                      <img alt="Image placeholder" src="{{auth()->user()->image==""?asset('assets/img/theme/team-4.jpg'):auth()->user()->image}}">
+                      <img alt="Image placeholder" src="{{auth()->user()->image==""?asset('assets/img/logo.jpg'):auth()->user()->image}}">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
                       <span class="mb-0 text-sm  font-weight-bold">{{auth()->user()->name}}</span>
@@ -175,7 +175,7 @@ if (auth()->user()->status) {
                 @endif
                
                   <div class="dropdown-divider"></div>
-                  <a href="#!" class="dropdown-item">
+                  <a href="{{url('admin/logout')}}" class="dropdown-item">
                     <i class="ni ni-user-run"></i>
                     <span>تسجيل الخروج</span>
                   </a>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\API\LoginRequest;
 use App\Http\Requests\API\RegisterRequest;
@@ -40,6 +41,11 @@ class RegisterController extends Controller
         return new UserResourc(auth()->user());
         //  response(['user' => auth()->user(), 'access_token' => $accessToken]);
 
+    }
+    public function logout()
+    {
+        Auth::guard()->logout();
+        return redirect('/');
     }
     private function uploadeImages( $request)
     {

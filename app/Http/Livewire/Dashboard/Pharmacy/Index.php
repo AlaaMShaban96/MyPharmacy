@@ -28,40 +28,15 @@ class Index extends Component
         'pharmacy.photo' => 'image|max:1024',
         'pharmacy.password' => 'required|min:8',
     ];
-    // public function updated($propertyName)
-    // {
-    //     if (
-    //     isset($this->pharmacy['name'])&&
-    //     isset($this->pharmacy['x']) &&
-    //     isset($this->pharmacy['y']) &&
-    //     isset($this->pharmacy['email']) &&
-    //     isset($this->pharmacy['phone']) &&
-    //     isset($this->pharmacy['password']) &&
-    //     isset($this->pharmacy['address']) ) {
-    //         $this->submit=true;
-    //     }else {
-    //         $this->submit=false;
-    //     }
-    //     if ($this->edit==true && $propertyName=='pharmacy.email') {
-
-    //     }else{
-    //         $this->validateOnly($propertyName);
-    //     }
-    // } 
     public function render()
     {
         $pharmacies=Pharmacy::paginate(10);
-        // $this->clearInput();
         return view('livewire.dashboard.pharmacy.index',['pharmacies'=>$pharmacies]);
     }
     public function destroy(Pharmacy $pharmacy)
     {
         try {
-            // dd($pharmacy,$pharmacy->user);
 
-            // if (isset($pharmacy->user->image)) {
-            //     unlink($pharmacy->user->image);
-            // }
             User::find($pharmacy->user->id)->delete();
             $pharmacy->delete();
 
