@@ -82,57 +82,61 @@
                       </div>
                     </td>
                   </tr> --}}
-                  @foreach ($orders as $key => $order)                        
-                  <tr>
-                    <th scope="row">
-                      <div class="media align-items-center">
-                        <a href="#" class="avatar rounded-circle mr-3">
-                          <img alt="Image " src="{{$order->image==""?asset('assets/img/logo.jpg'):$order->image}}">
-                        </a>
-                        <div class="media-body">
-                          <span class="name mb-0 text-sm">{{$order->name}}</span>
+                
+               @if ($orders)
+                    @foreach ($orders as  $order)                        
+                    <tr>
+                      <th scope="row">
+                        <div class="media align-items-center">
+                          <a href="#" class="avatar rounded-circle mr-3">
+                            <img alt="Image " src="{{$order->image==""?asset('assets/img/logo.jpg'):$order->image}}">
+                          </a>
+                          <div class="media-body">
+                            <span class="name mb-0 text-sm">{{$order->name}}</span>
+                          </div>
                         </div>
-                      </div>
-                    </th>
-                    <td class="budget">
-                      {{$order->text}}
-                    </td>
-                    <td>
-                        <span class="badge badge-dot mr-4">
-                            <i class="bg-success"></i>
-                            <span class="status">طلب مفتوح</span>
-                          </span>
-                    </td>
-                    <td>
-                      <div class="avatar-group">
-                        <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="{{$order->user->name}}">
-                          <img alt="Image placeholder" src="{{$order->user->image==""?'../assets/img/theme/team-1.jpg':$order->user->image}}">
-                        </a>
-                  
-                      </div>
-                    </td>
-                  
-                    <form  wire:submit.prevent="replayOrder({{$order->id}},{{$key}})" method="post">
-                      @csrf
+                      </th>
+                      <td class="budget">
+                        {{$order->text}}
+                      </td>
                       <td>
-                        <div class="avatar-group">
-                        <input placeholder="سعر الدواء" wire:model.lazy='order.{{$key}}.price'  type="number" name="" id="" >
-                        </div>
+                          <span class="badge badge-dot mr-4">
+                              <i class="bg-success"></i>
+                              <span class="status">طلب مفتوح</span>
+                            </span>
                       </td>
                       <td>
                         <div class="avatar-group">
-                        <input placeholder="كتابة الرد" wire:model.lazy='order.{{$key}}.text' maxlength="80" size="20"  type="text" name="" id="" >
+                          <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="{{$order->user->name}}">
+                            <img alt="Image placeholder" src="{{$order->user->image==""?'../assets/img/theme/team-1.jpg':$order->user->image}}">
+                          </a>
+                    
                         </div>
                       </td>
-                  
-                      <td class="text-right">
-                        <button type="submit" class="btn btn-primary ">رد علي الطلب</button>
-                      </td>
-                  </form>
+                    
+                      <form  wire:submit.prevent="replayOrder({{$order->id}},{{$key}})" method="post">
+                        @csrf
+                        <td>
+                          <div class="avatar-group">
+                          <input placeholder="سعر الدواء" wire:model.lazy='order.{{$key}}.price'  type="number" name="" id="" >
+                          </div>
+                        </td>
+                        <td>
+                          <div class="avatar-group">
+                          <input placeholder="كتابة الرد" wire:model.lazy='order.{{$key}}.text' maxlength="80" size="20"  type="text" name="" id="" >
+                          </div>
+                        </td>
+                    
+                        <td class="text-right">
+                          <button type="submit" class="btn btn-primary ">رد علي الطلب</button>
+                        </td>
+                    </form>
 
-                  </tr>
-                  @endforeach
-                  {{$orders->links()}}
+                    </tr>
+                    @endforeach
+                    {{$orders->links()}}
+               @endif
+              
 
                 </tbody>
 
