@@ -40,7 +40,7 @@ class Login extends Component
                     return redirect('dashboard/');
 
                 }else{
-
+ 
                     return redirect('admin/dashboard');
                 }
             }else{

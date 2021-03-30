@@ -6,6 +6,7 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\OrderController;
 use App\Http\Controllers\API\PharmacyController;
 use App\Http\Controllers\API\RegisterController;
+use App\Http\Controllers\API\AdvertisingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::post('/login', [RegisterController::class, 'login']);
 Route::middleware(['auth:api'])->group(function () {
 
     Route::get('/pharmacies',[PharmacyController::class, 'index']);
+    Route::get('/advertising',[AdvertisingController::class, 'index']);
     Route::post('users/{user}',[UserController::class, 'update']);
     
     Route::get('/orders',[OrderController::class, 'index']);

@@ -19,4 +19,13 @@ class Pharmacy extends Model
     {
         return $this->belongsTo(User::class);
     }
+    /**
+     * Get all of the Advertising for the Pharmacy
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function advertisings(): HasMany
+    {
+        return $this->hasMany(Advertising::class);
+    }
 }

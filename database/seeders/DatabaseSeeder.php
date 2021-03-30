@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Database\Seeders\UserSeed;
 use Illuminate\Database\Seeder;
+use Database\Seeders\AdvertisingSeed;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UserSeed::class);
         $this->call(PharmacSeed::class);
+        $this->call(AdvertisingSeed::class);
        
         // $this->call(OrderSeed::class);
 

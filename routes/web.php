@@ -7,6 +7,7 @@ use App\Http\Livewire\Login;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Records;
 use App\Http\Livewire\MyOrders;
+use App\Http\Livewire\Advertising;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\API\RegisterController;
@@ -26,10 +27,12 @@ use App\Http\Controllers\Dasboard\SystemController;
 Route::get('/', Login::class)->name('login');
 
 Route::middleware(['auth'])->group(function () {
+    
     Route::post('login/', [SystemController::class,'login']);
     Route::get('/dashboard', Index::class);
     Route::get('/my-oreders', MyOrders::class);
     Route::get('/records', Records::class);
+    Route::get('/advertisings', Advertising::class);
     Route::get('/profile', Profile::class);
     Route::get('/logout', [RegisterController::class,'logout']);
 
