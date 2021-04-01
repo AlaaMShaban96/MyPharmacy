@@ -24,7 +24,7 @@ class Pharmacy extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function advertisings(): HasMany
+    public function advertisings()
     {
         return $this->hasMany(Advertising::class);
     }

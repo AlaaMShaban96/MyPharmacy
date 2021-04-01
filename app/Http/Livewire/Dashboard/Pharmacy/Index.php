@@ -84,7 +84,7 @@ class Index extends Component
             Session::flash('alert-class', 'alert-success'); 
         } catch (\Throwable $th) {
             // $user->delete();
-            dd($th);
+            // dd($th);
             Session::flash('message', 'فشلة عملية الاضافة'); 
             Session::flash('alert-class', 'alert-danger');
         }

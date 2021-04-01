@@ -152,6 +152,10 @@ if (auth()->user()->status) {
                     <i class="ni ni-support-16"></i>
                     <span>طلباتي</span>
                   </a>
+                  <a href="{{url('/advertisings')}}" class="dropdown-item">
+                    <i class="ni ni-support-16"></i>
+                    <span>اعلانات</span>
+                  </a>
                   <a href="{{url('/records')}}" class="dropdown-item">
                     <i class="ni ni-collection"></i>
                     <spaPerformancen>سجل الردود</span>
