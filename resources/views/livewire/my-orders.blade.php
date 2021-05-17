@@ -84,7 +84,7 @@
                   </tr> --}}
                 
                @if ($orders)
-                    @foreach ($orders as  $order)                        
+                    @foreach ($orders as $key=>  $order)                        
                     <tr>
                       <th scope="row">
                         <div class="media align-items-center">
