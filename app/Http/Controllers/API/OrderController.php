@@ -23,20 +23,18 @@ class OrderController extends Controller
     }
     public function create(OrderRequest $request)
     {
-        try {
-            //code...
-       
-        $data=$request->all();
-        $data['image']=$this->uploadeImages($request);
-        $data['user_id']=auth()->user()->id;
-        if (isset($data['pharmacy_id'])) {
-            $data['public']=false;
-            $order=Order::create($data);
-            $pharmacy=Pharmacy::find($data['pharmacy_id']);
-            $pharmacy->orders()->attach($order->id,['status'=>1]);
-        }else {
-            Order::create($data);
-        }
+        try {       
+            $data=$request->all();
+            $data['image']=isset($data['image'])?$this->uploadeImages($request):null;
+            $data['user_id']=auth()->user()->id;
+            if (isset($data['pharmacy_id'])) {
+                $data['public']=false;
+                $order=Order::create($data);
+                $pharmacy=Pharmacy::find($data['pharmacy_id']);
+                $pharmacy->orders()->attach($order->id,['status'=>1]);
+            }else {
+                Order::create($data);
+            }
         return response()->json(['response'=>'تم ارسال الطلب بنجاح'], 200);
         } catch (\Throwable $th) {
             return $th;
