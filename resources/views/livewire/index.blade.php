@@ -114,7 +114,7 @@
                     <tr>
                       <th scope="row">
                         <div class="media align-items-center">
-                          <a href="#" class="avatar rounded-circle mr-3">
+                          <a href="#" class="show-order avatar rounded-circle mr-3" data-img-url="{{$order->image==""?asset('assets/img/logo.jpg'):$order->image}}"  data-name="{{$order->name}}" data-text="{{$order->text}}" data-toggle="modal" data-target="#exampleModal">
                             <img alt="Image " src="{{$order->image==""?asset('assets/img/logo.jpg'):$order->image}}">
                           </a>
                           <div class="media-body">
@@ -134,7 +134,7 @@
                       <td>
                         <div class="avatar-group">
                           <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="{{$order->user->name}}">
-                            <img alt="Image placeholder" src="{{$order->user->image==""?'../assets/img/theme/team-1.jpg':$order->user->image}}">
+                            <img alt="Image placeholder" src="{{$order->user->image==""?'../assets/img/theme/team-1.jpg':asset($order->user->image)}}">
                           </a>
                     
                         </div>
@@ -171,7 +171,30 @@
       </div> 
     </div> 
 
+    
+<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="order-name">بيانات الطلب</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="" alt="" srcset="" id="order-img-url" style="width: 100%;">
+          <div class="form-group">
+            <label for="message-text" class="col-form-label"> تفاصيل الطلب:</label>
+            {{-- <textarea disabled class="form-control" id="order-text"></textarea> --}}
+            <p id="order-text"></p>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-   
+<script>
+  
+</script>  
 
 

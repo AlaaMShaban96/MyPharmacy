@@ -4,9 +4,11 @@ namespace App\Http\Controllers\API;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Mail\SendOTPUsingEmail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\API\LoginRequest;
 use App\Http\Requests\API\RegisterRequest;
 use App\Http\Resources\API\User\UserResourc;
@@ -46,6 +48,20 @@ class RegisterController extends Controller
     {
         Auth::guard()->logout();
         return redirect('/');
+    }
+    public function sendOTPUsingEmail(Request $request)
+    {
+        try {
+            //The email sending is done using the to method on the Mail facade
+            Mail::to( $request->email)->send(new SendOTPUsingEmail( $request->code));
+            return response()->json(['message'=>'Send OTP Using Email Successfully'], 200);
+
+        } catch (\Throwable $th) {
+            return response(['message' => 'Invalid Credentials'. $th]);
+
+        }
+        
+
     }
     private function uploadeImages( $request)
     {

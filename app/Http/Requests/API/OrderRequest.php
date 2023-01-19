@@ -31,7 +31,7 @@ class OrderRequest extends FormRequest
         switch ($method) {
             case 'create':
                 return [
-                    'image' => ['required'],
+                    // 'image' => ['required'],
                     'name' => ['required'],
                     'text' => ['required'],
                 ];
@@ -39,7 +39,7 @@ class OrderRequest extends FormRequest
                 
             case 'update':
                 return [
-                    'image' => ['required'],
+                    // 'image' => ['required'],
                     'name' => ['required'],
                     'text' => ['required'],
                     'status' => ['required'],

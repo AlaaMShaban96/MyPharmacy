@@ -3,10 +3,11 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Advertising as AD;
 use Livewire\WithPagination;
 use Livewire\WithFileUploads;
+use App\Models\Advertising as AD;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Advertising extends Component
 {
@@ -40,6 +41,7 @@ class Advertising extends Component
             // dd($this->advertising['advertising']);
             AD::create($this->advertising['advertising']);
             $this->clearInput();
+            $this->dispatchBrowserEvent('success-tost',['action'=>"الحفظ"]);
             Session::flash('message', 'تم الاضافة بنجاح'); 
             Session::flash('alert-class', 'alert-success');
         } catch (\Throwable $th) {
@@ -74,12 +76,14 @@ class Advertising extends Component
                 $this->advertising['advertising']['pharmacy_id']=auth()->user()->pharmacy->id;
                 $this->advertisingRef->update($this->advertising['advertising']);
                 $this->edit=false;
+                $this->dispatchBrowserEvent('success-tost',['action'=>"التعديل"]);
 
                 Session::flash('done-message', ' تم التعديل بنجاح'); 
                 Session::flash('alert-class', 'alert-success'); 
     
                 } catch (\Throwable $th) {
-                
+                    $this->dispatchBrowserEvent('error-tost',['action'=>"التعديل"]);
+
                     Session::flash('done-message','فشلة عملية التعديل'); 
                     Session::flash('alert-class', 'alert-danger');
                 }

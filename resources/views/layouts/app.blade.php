@@ -55,7 +55,7 @@ if (auth()->user()->status) {
   </head>
 
   <body>
-    <div class="main-content " id="panel">
+    <div class="main-content " id="panel" >
       <!-- Topnav -->
       <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom ">
         <div class="container-fluid">
@@ -64,19 +64,9 @@ if (auth()->user()->status) {
             <ul class="navbar-nav align-items-center text-center ml-md-auto ">
               <li class="nav-item d-xl-none">
                 <!-- Sidenav toggler -->
-                <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
-                  <div class="sidenav-toggler-inner">
-                    <i class="sidenav-toggler-line"></i>
-                    <i class="sidenav-toggler-line"></i>
-                    <i class="sidenav-toggler-line"></i>
-                  </div>
-                </div>
+               
               </li>
-              <li class="nav-item d-sm-none">
-                <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
-                  <i class="ni ni-zoom-split-in"></i>
-                </a>
-              </li>
+
               @if (auth()->user()->status)
                 <li class="nav-item dropdown">
                   <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -195,10 +185,10 @@ if (auth()->user()->status) {
           {{-- @yield('content') --}}
 
          
-       
+      
     </div>
-
     <script>
+      
       Object.size = function(obj) {
           var size = 0,
             key;
@@ -207,7 +197,6 @@ if (auth()->user()->status) {
           }
           return size;
         };
-              console.log(Object.size(months));
         var data=[0,0,0,0,0,0,0,0,0,0,0,0];
               for (key in months) {
                 console.log(key);
@@ -254,7 +243,7 @@ if (auth()->user()->status) {
                 }
                 
               };
-              console.log(data);
+      //         console.log(data);
     </script>
 
     <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
@@ -266,10 +255,65 @@ if (auth()->user()->status) {
     <script src="{{asset('assets/vendor/chart.js/dist/Chart.min.js')}}"></script>
     <script src="{{asset('assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
     <!-- Argon JS -->
-    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{asset('assets/js/argon.js?v=1.2.0')}}"></script>
+   <script>
+    $(document).ready(function () {
+        $(".show-order").click(function () {
+            $('#order-img-url').attr('src',$(this).data('img-url'));
+            $('#order-text').text($(this).data('text'));
+            $('#order-name').text($(this).data('name'));
+            $('#exampleModal').modal('show');
+        });
+      });
    
+
+    window.addEventListener('success-tost', event => {
+    
+      const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-start',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+
+        Toast.fire({
+          icon: 'success',
+          title: 'تم '+ event.detail.action+' بنجاح '
+        })
+
+    
+    })
+    window.addEventListener('error-tost', event => {
+    
+    const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-start',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+
+      Toast.fire({
+        icon: 'error',
+        title: 'يوجد خطأ في عملية '+event.detail.action
+      })
+
+  
+  })
+    
+</script>
   @livewireScripts
+
 </body>
 
 </html>

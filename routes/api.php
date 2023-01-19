@@ -21,6 +21,7 @@ use App\Http\Controllers\API\AdvertisingController;
 
 Route::post('/register', [RegisterController::class, 'register']);
 Route::post('/login', [RegisterController::class, 'login']);
+Route::post('/send-otp-using-email',[App\Http\Controllers\API\RegisterController::class,'SendOTPUsingEmail'])->name('SendOTPUsingEmail');
 
 Route::middleware(['auth:api'])->group(function () {
 

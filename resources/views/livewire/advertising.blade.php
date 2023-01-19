@@ -12,18 +12,9 @@
       </div>
       </div>
   </div>
+
   @if ($create || $edit)
     
-  
-      @if(Session::has('message'))
-      <span class="alert {{ Session::get('alert-class') }}" role="alert">
-        {{ Session::get('message') }}
-      </span>  
-      @else
-      
-  
-      
-  @endif
        
     <div class="card ">
     
@@ -141,5 +132,4 @@
         </div>
       </div>
   </div>
-  
-  
+ 
