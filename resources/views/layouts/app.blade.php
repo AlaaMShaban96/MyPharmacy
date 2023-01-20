@@ -265,6 +265,12 @@ if (auth()->user()->status) {
             $('#order-name').text($(this).data('name'));
             $('#exampleModal').modal('show');
         });
+        $(".show-img-url").click(function () {
+            $('#ad-img-url').attr('src',$(this).data('img-url'));
+            $('#ad-textt').text($(this).data('text'));
+            $('#ad-date').text($(this).data('date'));
+            $('#adModal').modal('show');
+        });
       });
    
 

@@ -114,10 +114,14 @@
                             </td>
                               <th scope="row">
         
-        
-                                  <a href="#" class="avatar rounded-circle ">
-                                    <img alt="Image placeholder" class="" src="{{isset($advertising->image)?asset($advertising->image):'../assets/img/theme/bootstrap.jpg'}}">
-                                </a>
+                                <button type="button"
+                                  class="btn btn-info show-img-url"
+                                  data-img-url="{{isset($advertising->image)?asset($advertising->image):'../assets/img/theme/bootstrap.jpg'}}"
+                                  data-date="{{$advertising->created_at->format('d-m-Y') }}"
+                                  data-text="{{$advertising->text}}"
+                                  data-toggle="modal" 
+                                  data-target="#adModal"
+                                >عرض الاعلان </button>
                               </th>
                             
                             </tr>                    
@@ -133,3 +137,23 @@
       </div>
   </div>
  
+
+  <div class="modal fade " id="adModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ad-date">بيانات الطلب</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="" alt="" srcset="" id="ad-img-url" style="width: 100%;height: 60%;">
+            <div class="form-group">
+              <label for="message-text" class="col-form-label"> تفاصيل الاعلان:</label>
+              <p id="ad-textt"></p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
