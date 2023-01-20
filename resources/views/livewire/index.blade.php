@@ -129,9 +129,10 @@
                     </tr>
                     @endif
                     @endforeach
-                    {{$orders->links()}}
                   </tbody>
                 </table>
+                {{$orders->links()}}
+
               </div>
             </div>
           </div>
