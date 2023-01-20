@@ -12,7 +12,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">الطلبات التي تم الرد عليها</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">الطلبات التي تم الرد علىها</h5>
                         <span class="h1 font-weight-bold mb-0">{{$myOrderNumber}}</span>
                       </div>
                       <div class="col-auto">
@@ -123,7 +123,7 @@
                         </td>
                     
                         <td class="text-right">
-                          <button type="submit" class="btn btn-primary ">رد علي الطلب</button>
+                          <button type="submit" class="btn btn-primary ">رد على الطلب</button>
                         </td>
                     </form>
                     </tr>

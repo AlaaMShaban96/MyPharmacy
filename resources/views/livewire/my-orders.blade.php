@@ -57,7 +57,7 @@
                     </td>
                 
                     <td class="text-right">
-                      <button type="submit" class="btn btn-primary ">رد علي الطلب</button>
+                      <button type="submit" class="btn btn-primary ">رد على الطلب</button>
                     </td>
                 </form>
                 </tr>

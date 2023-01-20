@@ -29,7 +29,7 @@
         
         <div class="form-row ">
             <div class="form-group col-md-6">
-                <label for="inputAddress">صورة</label>
+                <label for="inputAddress">الصورة</label>
                 <div class="input-group">
                   <input type="file" class="form-control @error('advertising.photo') is-invalid @enderror" wire:model.defer='advertising.photo'  aria-label="Upload">
                   <div id="validationServer05Feedback" class="invalid-feedback">
@@ -41,7 +41,7 @@
             <div class="form-group col-md-6">
                 <label for="inputAddress">النص </label>
                 <div class="input-group ">
-                    <input type="text" name='text' wire:model.defer='advertising.text' class="form-control @error('advertising.text') is-invalid @enderror"  placeholder="اضافة نص الاعلان">
+                    <input type="text" name='text' wire:model.defer='advertising.text' class="form-control @error('advertising.text') is-invalid @enderror"  placeholder="إضافة نص الاعلان">
                     <div id="validationServer05Feedback" class="invalid-feedback">
                       @error('pharmacy.y') {{$message}} @enderror
                     </div>
@@ -49,7 +49,7 @@
             </div>
         </div>
         @if ($create)
-          <button type="button" wire:click="store()" class="btn btn-success m-3 " @if (!($errors->any() || $submit)) disabled @endif>اضافة اعلان</button>
+          <button type="button" wire:click="store()" class="btn btn-success m-3 " @if (!($errors->any() || $submit)) disabled @endif>إضافة اعلان</button>
         @else
           <button type="button" wire:click="update()" class="btn btn-primary m-3 " @if (!($errors->any() || $submit)) disabled @endif>تعديل اعلان</button>
         @endif
@@ -58,7 +58,7 @@
     </div>  
   @else
   
-  <button type="button" wire:click="create()" class="btn btn-success m-3 ">اضافةاعلان</button>
+  <button type="button" wire:click="create()" class="btn btn-success m-3 ">إضافةاعلان</button>
   
   @endif
   
@@ -86,7 +86,7 @@
                     <th scope="col"></th>
                     <th scope="col" class="sort" data-sort="budget">تاريخ الاعلان</th>
                     <th scope="col" class="sort" data-sort="name">النص</th>
-                    <th scope="col" class="sort" data-sort="name">صورة</th>
+                    <th scope="col" class="sort" data-sort="name">الصورة</th>
                   </tr>
                 </thead>
                 <tbody class="list">
@@ -102,7 +102,7 @@
                               <td>
                                 <span class="badge badge-dot">
                                 
-                                <button type="button" wire:click="destroy({{$advertising->id}})" class="btn btn-danger " >حدف</button>
+                                <button type="button" wire:click="destroy({{$advertising->id}})" class="btn btn-danger " >حذف</button>
                                 </span>
                               </td>
                                           

@@ -42,10 +42,10 @@ class Advertising extends Component
             AD::create($this->advertising['advertising']);
             $this->clearInput();
             $this->dispatchBrowserEvent('success-tost',['action'=>"الحفظ"]);
-            Session::flash('message', 'تم الاضافة بنجاح'); 
+            Session::flash('message', 'تم الإضافة بنجاح'); 
             Session::flash('alert-class', 'alert-success');
         } catch (\Throwable $th) {
-            Session::flash('message', 'فشلة عملية الاضافة'); 
+            Session::flash('message', 'فشلة عملية الإضافة'); 
             Session::flash('alert-class', 'alert-danger');
         }
          

@@ -44,7 +44,7 @@ class OrderController extends Controller
     {
         $order->status=0;
         $order->save();
-        return response()->json(['response'=>'تم حدف الطلب بنجاح'], 200);
+        return response()->json(['response'=>'تم حذف الطلب بنجاح'], 200);
     }
     private function uploadeImages( $request)
     {

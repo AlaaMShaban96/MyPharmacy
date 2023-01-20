@@ -50,7 +50,7 @@ class OrderRequest extends FormRequest
     public function messages()
     {
         return [
-            'image.required' => 'يجب تحميل الصورة ', 
+            'image.required' => 'يجب تحميل الالصورة ', 
             'name.required'=>'يجب كتابة اسم الدواء',
             'text.required'=>'يجب كتتابة تفاصيل الدواء',
             'status.required'=>'يجب تحديد حالة الطلب',

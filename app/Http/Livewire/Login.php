@@ -15,7 +15,7 @@ class Login extends Component
     ];
     protected $messages = [
         'user.password.required' => 'يجب كتابة كلمة السر ', 
-        'user.password.min' => 'يجب كتابة كلمة السر مكونة علي الاقل من 8 حروف', 
+        'user.password.min' => 'يجب كتابة كلمة السر مكونة على الاقل من 8 حروف', 
         'user.email.required'=>'يجب كتابة البريد الالكتروني',
         'user.email.email'=>'البريد الالكتروني غير موجود'
     ];

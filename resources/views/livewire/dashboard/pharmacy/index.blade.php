@@ -115,7 +115,7 @@
           </div>
       </div>
       @if ($create)
-        <button type="button" wire:click="store()" class="btn btn-success m-3 " @if (!($errors->any() || $submit)) disabled @endif>اضافة صيدالية</button>
+        <button type="button" wire:click="store()" class="btn btn-success m-3 " @if (!($errors->any() || $submit)) disabled @endif>إضافة صيدالية</button>
       @else
         <button type="button" wire:click="update()" class="btn btn-primary m-3 " @if (!($errors->any() || $submit)) disabled @endif>تعديل صيدالية</button>
       @endif
@@ -124,7 +124,7 @@
   </div>  
 @else
 
-<button type="button" wire:click="create()" class="btn btn-success m-3 ">اضافة صيدالية</button>
+<button type="button" wire:click="create()" class="btn btn-success m-3 ">إضافة صيدالية</button>
 
 @endif
 
@@ -150,9 +150,9 @@
              
                   <th scope="col"></th>
                   <th scope="col"></th>
-                  <th scope="col" class="sort" data-sort="budget">تاريخ الانظمام</th>
+                  <th scope="col" class="sort" data-sort="budget">تاريخ الانضمام</th>
                   <th scope="col" class="sort" data-sort="name">اسم الصيدالية</th>
-                  <th scope="col" class="sort" data-sort="name">صورة</th>
+                  <th scope="col" class="sort" data-sort="name">الصورة</th>
                 </tr>
               </thead>
               <tbody class="list">
@@ -169,7 +169,7 @@
                             <td>
                               <span class="badge badge-dot">
                               
-                              <button type="button" class="btn btn-danger "  wire:click="destroy({{$pharmacy->id}})">حدف</button>
+                              <button type="button" class="btn btn-danger "  wire:click="destroy({{$pharmacy->id}})">حذف</button>
                               </span>
                             </td>
                                         

@@ -19,7 +19,7 @@ class Profile extends Component
     ];
     protected $messages = [
         'user.password.required' => 'يجب كتابة كلمة السر ', 
-        'user.password.min' => 'يجب كتابة كلمة السر مكونة علي الاقل من 8 حروف', 
+        'user.password.min' => 'يجب كتابة كلمة السر مكونة على الاقل من 8 حروف', 
         'user.username.required'=>'يجب كتابة اسم المستخدم',
     ];
     public function updated($propertyName)

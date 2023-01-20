@@ -33,7 +33,7 @@ class LoginRequest extends FormRequest
     {
         return [
             'password.required' => 'يجب كتابة كلمة السر ', 
-            'password.min' => 'يجب كتابة كلمة السر مكونة علي الاقل من 8 حروف', 
+            'password.min' => 'يجب كتابة كلمة السر مكونة على الاقل من 8 حروف', 
             'email.required'=>'يجب كتابة البريد الالكتروني',
             'email.email'=>'البريد الالكتروني غير موجود'
 

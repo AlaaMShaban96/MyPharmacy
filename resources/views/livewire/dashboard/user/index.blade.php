@@ -34,9 +34,9 @@
                
                     <th scope="col"></th>
                     <th scope="col" class="sort" data-sort="budget">عدد الطلبات المرسلة</th>
-                    <th scope="col" class="sort" data-sort="budget">تاريخ الانظمام</th>
+                    <th scope="col" class="sort" data-sort="budget">تاريخ الانضمام</th>
                     <th scope="col" class="sort" data-sort="name">اسم المستخدم</th>
-                    <th scope="col" class="sort" data-sort="name">صورة</th>
+                    <th scope="col" class="sort" data-sort="name">الصورة</th>
                     <th scope="col" class="sort" data-sort="name">رقم المستخدم</th>
                   </tr>
                 </thead>
@@ -47,7 +47,7 @@
                        <td>
                           <span class="badge badge-dot">
                           
-                          <button type="button" class="btn btn-danger "  wire:click="destroy({{$user->id}})">حدف</button>
+                          <button type="button" class="btn btn-danger "  wire:click="destroy({{$user->id}})">حذف</button>
                           </span>
                       </td>           
                       <td class="budget">

@@ -62,19 +62,19 @@
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name">خط الطول علي الخريطة</label>
+                        <label class="form-control-label" for="input-last-name">خط الطول على الخريطة</label>
                         <input type="text" id="input-last-name" class="form-control" wire:model.lazy="user.x"placeholder="x" >
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name"> خط العرض علي الخريطة</label>
+                        <label class="form-control-label" for="input-last-name"> خط العرض على الخريطة</label>
                         <input type="text" id="input-last-name" class="form-control"wire:model.lazy="user.y" placeholder="y">
                       </div>
                     </div> 
                     {{-- <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name"> صورة شعار الصيدالية</label>
+                        <label class="form-control-label" for="input-last-name"> الصورة شعار الصيدالية</label>
                         <input type="text" id="input-last-name" class="form-control"wire:model.lazy="user.y" placeholder="y">
                       </div>
                     </div> --}}
