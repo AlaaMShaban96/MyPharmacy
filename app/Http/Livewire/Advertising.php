@@ -66,27 +66,21 @@ class Advertising extends Component
 
         ]);
 
-            try {
-                if ($this->advertising['advertising']['photo']!="") {
-                    $this->advertising['advertising']['image']=$this->uploadeImages( $this->advertising['advertising']['photo']);
-                }else {
-                    $this->advertising['advertising']['image']=$this->advertisingRef->image;
+        try {
+            if ($this->advertising['advertising']['photo']!="") {
+                $this->advertising['advertising']['image']=$this->uploadeImages( $this->advertising['advertising']['photo']);
+            }else {
+                $this->advertising['advertising']['image']=$this->advertisingRef->image;
 
-                } 
-                $this->advertising['advertising']['pharmacy_id']=auth()->user()->pharmacy->id;
-                $this->advertisingRef->update($this->advertising['advertising']);
-                $this->edit=false;
-                $this->dispatchBrowserEvent('success-tost',['action'=>"التعديل"]);
+            } 
+            $this->advertising['advertising']['pharmacy_id']=auth()->user()->pharmacy->id;
+            $this->advertisingRef->update($this->advertising['advertising']);
+            $this->edit=false;
+            $this->dispatchBrowserEvent('success-tost',['action'=>"التعديل"]);
 
-                Session::flash('done-message', ' تم التعديل بنجاح'); 
-                Session::flash('alert-class', 'alert-success'); 
-    
-                } catch (\Throwable $th) {
-                    $this->dispatchBrowserEvent('error-tost',['action'=>"التعديل"]);
-
-                    Session::flash('done-message','فشلة عملية التعديل'); 
-                    Session::flash('alert-class', 'alert-danger');
-                }
+        } catch (\Throwable $th) {
+            $this->dispatchBrowserEvent('error-tost',['action'=>"التعديل"]);
+        }
            
         
     }

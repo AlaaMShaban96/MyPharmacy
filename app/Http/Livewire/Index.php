@@ -6,6 +6,7 @@ use App\Models\Order;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use Livewire\WithPagination;
+use App\Events\SendNotification;
 
 class Index extends Component
 {
@@ -27,7 +28,19 @@ class Index extends Component
    public function replayOrder(Order $order,$key)
    {
    
-      auth()->user()->pharmacy->orders()->attach($order->id,['price'=>$this->order[$key]['price'],'text'=>$this->order[$key]['text'],'status'=>2]);
+      auth()
+      ->user()
+      ->pharmacy
+      ->orders()
+      ->attach($order->id,[
+        'price'=>$this->order[$key]['price'],
+        'text'=>$this->order[$key]['text'],
+        'status'=>2
+        ]);
+        $notification="تم الرد علي الطلب من قبل ".auth()->user()->pharmacy->name;
+        event(new SendNotification(user:$order->user,notification:$notification));
+        $this->dispatchBrowserEvent('success-tost',['action'=>"الرد علي الطلب "]);
+
       $this->myOrderNumber+1;
       
    }

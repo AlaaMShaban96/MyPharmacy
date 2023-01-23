@@ -139,14 +139,10 @@ class Index extends Component
                 $this->pharmacyRef->user->update($this->pharmacy['pharmacy']);
                 $this->pharmacyRef->update($this->pharmacy['pharmacy']);
                 $this->edit=false;
-
-                Session::flash('done-message', ' تم التعديل بنجاح'); 
-                Session::flash('alert-class', 'alert-success'); 
+                $this->dispatchBrowserEvent('success-tost',['action'=>"التعديل"]);
     
                 } catch (\Throwable $th) {
-                
-                    Session::flash('done-message', 'فشلة عملية التعديل'); 
-                    Session::flash('alert-class', 'alert-danger');
+                    $this->dispatchBrowserEvent('error-tost',['action'=>"التعديل"]);
                 }
            
         
