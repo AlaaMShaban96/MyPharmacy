@@ -14,16 +14,17 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class SendNotification
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
+    public $user,$notification;
  
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(public User $user,public string $notification)
+    public function __construct( User $user, $notification)
     {
-
+        $this->user=$user;
+        $this->notification=$notification;
 
     }
 
