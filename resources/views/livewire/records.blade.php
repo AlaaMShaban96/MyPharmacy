@@ -25,7 +25,10 @@
                                          
                   <tr>
                     <th scope="row">
+                      
                       <div class="media align-items-center">
+                        <button type="button" wire:click="destroy({{$order->id}})" class="btn btn-danger " >حذف</button>
+
                         <button type="button"
                             class="btn btn-info show-order"
                             data-img-url="{{$order->image==""?asset('assets/img/logo.jpg'):$order->image}}"

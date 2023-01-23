@@ -91,13 +91,11 @@ class Advertising extends Component
         try {
 
             $advertising->delete();
-            Session::flash('done-message', ' تم الحذف بنجاح'); 
-            Session::flash('alert-class', 'alert-success'); 
+            $this->dispatchBrowserEvent('success-tost',['action'=>"الحذف"]);
 
         } catch (\Throwable $th) {
-           
-            Session::flash('done-message', 'فشلة عملية الحذف'); 
-            Session::flash('alert-class', 'alert-danger');
+            $this->dispatchBrowserEvent('error-tost',['action'=>"الحذف"]);
+
         }
        
     }
