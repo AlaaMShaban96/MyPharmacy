@@ -41,7 +41,7 @@ class MyOrders extends Component
             'status'=>2
         ]);
         $notification="تم الرد علي الطلب من قبل ".auth()->user()->pharmacy->name;
-        event(new SendNotification(user:$order->user,notification:$notification));
+        event(new SendNotification($order->user,$notification));
         $this->dispatchBrowserEvent('success-tost',['action'=>"الرد علي الطلب "]);
     }
 }
