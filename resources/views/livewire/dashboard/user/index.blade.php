@@ -60,7 +60,7 @@
                         {{$user->name}}
                       </td>
                         <th scope="row">
-                            <a href="#" class="avatar rounded-circle ">
+                            <a href="#" class="avatar ">
                                 <img alt="Image placeholder" class="" src="{{isset($user->image)?asset($user->image):'../assets/img/theme/bootstrap.jpg'}}">
                             </a>
                         </th>
