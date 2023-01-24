@@ -6,7 +6,7 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">الطلبات التي تم الرد علىها </h3>
+              <h3 class="mb-0">الطلبات التي تم الردعليها  </h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
@@ -15,65 +15,46 @@
                   <tr>
                     <th scope="col" class="sort" data-sort="name">الدواء</th>
                     <th scope="col" class="sort" data-sort="budget">شرح</th>
+                    <th scope="col" class="sort" data-sort="budget">الصيدالية</th>
                     <th scope="col" class="sort" data-sort="completion">السعر</th>
                     <th scope="col" class="sort" data-sort="completion">الرد</th>
                     <th scope="col"></th>
                   </tr>
                 </thead>
                 <tbody class="list">
-                  @foreach ($orders as $key => $order) 
+                  @foreach ($records as $key => $record) 
                                          
                   <tr>
                     <th scope="row">
                       
                       <div class="media align-items-center">
-                        <button type="button" wire:click="destroy({{$order->id}})" class="btn btn-danger " >حذف</button>
-
                         <button type="button"
                             class="btn btn-info show-order"
-                            data-img-url="{{$order->image==""?asset('assets/img/logo.jpg'):$order->image}}"
-                            data-name="{{$order->name}}"
-                            data-text="{{$order->text}}"
+                            data-img-url="{{$record->order->image==""?asset('assets/img/logo.jpg'):$record->order->image}}"
+                            data-name="{{ $record->order->name}}"
+                            data-text="{{ $record->order->text}}"
                             data-toggle="modal" 
                             data-target="#exampleModal"
                            >عرض الطلب </button>
                         <div class="media-body">
-                          <span class="name mb-0 text-sm">{{$order->name}}</span>
+                          <span class="name mb-0 text-sm">{{ $record->order->name}}</span>
                         </div>
                       </div>
                     </th>
                     <td class="budget">
-                      {{  mb_strimwidth($order->text, 0, 30, '...') }}
+                      {{  mb_strimwidth($record->order->text, 0, 30, '...') }}
                     </td>
-                    {{-- <td>
-                        <span class="badge badge-dot mr-4">
-                            <i class="bg-success"></i>
-                            <span class="status">طلب مفتوح</span>
-                          </span>
-                    </td> --}}
+                    <td class="budget">
+                        {{  $record->pharmacy->name}}
+                      </td>
                       <td>
                         <div class="avatar-group">
-                            <span class="name mb-0 text-sm">{{$order->pivot->price}}</span> 
+                            <span class="name mb-0 text-sm">{{$record->price}}</span> 
                         </div>
                       </td>
                       <td>
                         <div class="avatar-group">
-                            <span class="name mb-0 text-sm">{{$order->pivot->text}}</span> 
-                        </div>
-                      </td>
-                      <td>
-                        <div class="media align-items-center">
-                          {{-- <button type="button"
-                              class="btn btn-info show-order"
-                              data-img-url="{{$order->image==""?asset('assets/img/logo.jpg'):$order->image}}"
-                              data-name="{{$order->name}}"
-                              data-text="{{$order->text}}"
-                              data-toggle="modal" 
-                              data-target="#exampleModal"
-                             >عرض الطلب </button> --}}
-                          <div class="media-body">
-                            <span class="name mb-0 text-sm">{{$order->name}}</span>
-                          </div>
+                            <span class="name mb-0 text-sm">{{$record->text}}</span> 
                         </div>
                       </td>
                   
