@@ -8,7 +8,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                          <h5 class="card-title text-uppercase text-muted mb-0">عدد المستخدمين</h5>
+                          <h5 class="card-title text-uppercase text-muted mb-0"> المستخدمين</h5>
                           <span class="h2 font-weight-bold mb-0">{{$users->where('status',1)->where('pharmacy_id',null)->count()}}</span>
                       </div>
                       <div class="col-auto">
@@ -29,7 +29,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                          <h5 class="card-title text-uppercase text-muted mb-0">عدد الصيداليات</h5>
+                          <h5 class="card-title text-uppercase text-muted mb-0"> الصيداليات</h5>
                           <span class="h2 font-weight-bold mb-0">{{$pharmacies->count()}}</span>
                       </div>
                       <div class="col-auto">
@@ -44,23 +44,25 @@
               </a>
             </div>
             <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">عدد الطلبات المرسلة</h5>
-                      <span class="h2 font-weight-bold mb-0">{{$orders->count()}}</span>
-                    </div>
-                    <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
-                        <i class="ni ni-send"></i>
+              <a href="{{url('/all-order')}}">
+                <div class="card card-stats">
+                  <!-- Card body -->
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h5 class="card-title text-uppercase text-muted mb-0">عدد الطلبات المرسلة</h5>
+                        <span class="h2 font-weight-bold mb-0">{{$orders->count()}}</span>
+                      </div>
+                      <div class="col-auto">
+                        <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                          <i class="ni ni-send"></i>
+                        </div>
                       </div>
                     </div>
+                    
                   </div>
-                  
                 </div>
-              </div>
+              </a>
             </div>
             <div class="col-xl-3 col-md-6">
               <div class="card card-stats">

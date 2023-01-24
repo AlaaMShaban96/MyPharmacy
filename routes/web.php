@@ -6,6 +6,7 @@ use App\Http\Livewire\Index;
 use App\Http\Livewire\Login;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Records;
+use App\Http\Livewire\AllOrder;
 use App\Http\Livewire\MyOrders;
 use App\Http\Livewire\Advertising;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/records', Records::class);
     Route::get('/advertisings', Advertising::class);
     Route::get('/profile', Profile::class);
+    Route::get('/all-order',AllOrder::class);
     Route::get('/logout', [RegisterController::class,'logout']);
 
 });

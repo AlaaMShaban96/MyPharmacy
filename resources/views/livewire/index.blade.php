@@ -143,27 +143,27 @@
     </div>  
 
     
-<div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="order-name">بيانات الطلب</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-center">
-        <img src="" alt="" srcset="" id="order-img-url" style="width: 100%;height: 60%;">
-          <div class="form-group">
-            <label for="message-text" class="col-form-label"> تفاصيل الطلب:</label>
-            {{-- <textarea disabled class="form-control" id="order-text"></textarea> --}}
-            <p id="order-text"></p>
-
+    <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="order-name">بيانات الطلب</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+          <div class="modal-body text-center">
+            <img src="" alt="" srcset="" id="order-img-url" style="width: 100%;height: 60%;">
+              <div class="form-group">
+                <label for="message-text" class="col-form-label"> تفاصيل الطلب:</label>
+                {{-- <textarea disabled class="form-control" id="order-text"></textarea> --}}
+                <p id="order-text"></p>
+
+              </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
 <script>
   
