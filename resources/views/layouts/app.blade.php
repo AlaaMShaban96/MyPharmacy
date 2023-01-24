@@ -260,6 +260,7 @@ if (auth()->user()->status) {
    <script>
     $(document).ready(function () {
         $(".show-order").click(function () {
+          console.log($(this).data('name'));
             $('#order-img-url').attr('src',$(this).data('img-url'));
             $('#order-text').text($(this).data('text'));
             $('#order-name').text($(this).data('name'));
@@ -318,8 +319,8 @@ if (auth()->user()->status) {
   })
     
 </script>
-  @livewireScripts
-
+    @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>

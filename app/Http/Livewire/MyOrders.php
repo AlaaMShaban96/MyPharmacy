@@ -17,14 +17,13 @@ class MyOrders extends Component
     public $order = ['price','text' ];
     public function render()
     {
-        if (auth()->user()->pharmacy->orders()->count() !=0) {
             $this->orders=auth()
             ->user()
             ->pharmacy
             ->orders()
+            ->where('public',true)
             ->wherePivot('status',1)
-            ->paginate(7);
-        }
+            ->get();
    
         return view('livewire.my-orders',['orders'=>$this->orders]);
     }

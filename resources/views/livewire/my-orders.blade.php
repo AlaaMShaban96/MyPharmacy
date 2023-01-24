@@ -19,7 +19,7 @@
                 </tr>
               </thead>
               <tbody class="list">
-                @foreach ($orders->where('public',true) as $key=> $order)
+                @foreach ($orders as $key=> $order)
                 @if ($order->pharmacies->where('id',auth()->user()->pharmacy->id)->count()==0)
                     
               
@@ -63,7 +63,7 @@
                 </tr>
                 @endif
                 @endforeach
-                {{$orders->links()}}
+                {{-- {{$orders->links()}} --}}
               </tbody>
             </table>
           </div>

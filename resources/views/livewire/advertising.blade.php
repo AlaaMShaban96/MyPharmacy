@@ -31,7 +31,7 @@
             <div class="form-group col-md-6">
                 <label for="inputAddress">الصورة</label>
                 <div class="input-group">
-                  <input type="file" class="form-control @error('advertising.photo') is-invalid @enderror" wire:model.defer='advertising.photo'  aria-label="Upload">
+                  <input type="file" class="form-control  text-right @error('advertising.photo') is-invalid @enderror" wire:model.defer='advertising.photo'  aria-label="Upload">
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('advertising.photo') {{$message}} @enderror
                   </div>
@@ -41,7 +41,7 @@
             <div class="form-group col-md-6">
                 <label for="inputAddress">النص </label>
                 <div class="input-group ">
-                    <input type="text" name='text' wire:model.defer='advertising.text' class="form-control @error('advertising.text') is-invalid @enderror"  placeholder="إضافة نص الاعلان">
+                    <input type="text" name='text' wire:model.defer='advertising.text' class="form-control  text-right @error('advertising.text') is-invalid @enderror"  placeholder="إضافة نص الاعلان">
                     <div id="validationServer05Feedback" class="invalid-feedback">
                       @error('pharmacy.y') {{$message}} @enderror
                     </div>

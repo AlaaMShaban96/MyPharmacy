@@ -85,8 +85,7 @@
                     </tr>
                   </thead>
                   <tbody class="list">
-                    @foreach ($orders->where('public',true) as $key=> $order)
-                    @if ($order->pharmacies->where('id',auth()->user()->pharmacy->id)->count()==0)
+                    @foreach ($orders as $key=> $order)
                         
                   
                     <tr>
@@ -99,6 +98,7 @@
                             data-text="{{$order->text}}"
                             data-toggle="modal" 
                             data-target="#exampleModal"
+                            wire:click.prevent="x({{$order}})"
                            >عرض الطلب </button>
                           <div class="media-body">
                             <span class="name mb-0 text-sm">{{$order->name}}</span>
@@ -127,10 +127,10 @@
                         </td>
                     </form>
                     </tr>
-                    @endif
                     @endforeach
                   </tbody>
                 </table>
+                {{-- {{$orders->links()}} --}}
 
               </div>
 
@@ -139,8 +139,8 @@
         </div>
 
       </div> 
-    </div> 
-    {{$orders->links()}}
+
+    </div>  
 
     
 <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -158,6 +158,7 @@
             <label for="message-text" class="col-form-label"> تفاصيل الطلب:</label>
             {{-- <textarea disabled class="form-control" id="order-text"></textarea> --}}
             <p id="order-text"></p>
+
           </div>
       </div>
     </div>

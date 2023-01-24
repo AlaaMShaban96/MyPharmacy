@@ -14,12 +14,13 @@ class Index extends Component
     protected $paginationTheme = 'bootstrap';
     public $myOrderNumber,$allOrdersNumber;
     public $order = ['price','text' ];
+    public Order $x;
  
    
     public function render()
     {
         $this->myOrderNumber=(auth()->user()->pharmacy->orders->count()!=0)?auth()->user()->pharmacy->orders()->wherePivot('status',2)->count():0;
-        $orders=Order::where('status',true)->orderBy('id', 'DESC')->paginate(7);
+        $orders=Order::where('status',true)->where('public',true)->orderBy('id', 'DESC')->get();
         $this->allOrdersNumber=$orders->count();
         return view('livewire.index',compact('orders'));
     }
@@ -27,7 +28,6 @@ class Index extends Component
 
    public function replayOrder(Order $order,$key)
    {
-   
       auth()
       ->user()
       ->pharmacy
@@ -40,8 +40,11 @@ class Index extends Component
         $notification="تم الرد علي الطلب من قبل ".auth()->user()->pharmacy->name;
         event(new SendNotification($order->user,$notification));
         $this->dispatchBrowserEvent('success-tost',['action'=>"الرد علي الطلب "]);
-
-      $this->myOrderNumber+1;
-      
+      $this->myOrderNumber+1;  
    }
+  public function x(Order $order)
+  {
+    $this->x=$order;
+  }
+
 }
