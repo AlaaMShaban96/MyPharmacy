@@ -8,6 +8,7 @@ use App\Http\Livewire\Profile;
 use App\Http\Livewire\Records;
 use App\Http\Livewire\AllOrder;
 use App\Http\Livewire\MyOrders;
+use App\Http\Livewire\AllRecord;
 use App\Http\Livewire\Advertising;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -36,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/advertisings', Advertising::class);
     Route::get('/profile', Profile::class);
     Route::get('/all-order',AllOrder::class);
+    Route::get('/all-record',AllRecord::class);
     Route::get('/logout', [RegisterController::class,'logout']);
 
 });
