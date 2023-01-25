@@ -20,7 +20,6 @@
               </thead>
               <tbody class="list">
                 @foreach ($orders as $key=> $order)
-                @if ($order->pharmacies->where('id',auth()->user()->pharmacy->id)->count()==0)
                     
               
                 <tr>
@@ -61,7 +60,6 @@
                     </td>
                 </form>
                 </tr>
-                @endif
                 @endforeach
                 {{-- {{$orders->links()}} --}}
               </tbody>

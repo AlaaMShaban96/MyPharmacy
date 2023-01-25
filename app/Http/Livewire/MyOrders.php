@@ -21,7 +21,7 @@ class MyOrders extends Component
             ->user()
             ->pharmacy
             ->orders()
-            ->where('public',true)
+            ->where('public',0)
             ->wherePivot('status',1)
             ->get();
    
