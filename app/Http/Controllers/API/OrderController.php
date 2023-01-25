@@ -29,7 +29,7 @@ class OrderController extends Controller
             $data['user_id']=auth()->user()->id;
             if (isset($data['pharmacy_ids'])) {
                 foreach ($data['pharmacy_ids'] as $pharmacy_id) {
-                    $data['public']=false;
+                    $data['public']=0;
                     $order=Order::create($data);
                     $pharmacy=Pharmacy::find($pharmacy_id);
                     $pharmacy->orders()->attach($order->id,['status'=>1]);
