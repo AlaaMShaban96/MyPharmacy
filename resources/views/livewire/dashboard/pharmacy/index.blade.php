@@ -28,7 +28,7 @@
   <div class="card ">
   
     <div class="bg-white p-3 mb-3 text-center">
-      <div class=" text-left">
+      <div class=" text-right">
           <button type="button" class="btn btn-warning "  wire:click="closeForm()">الغاء</button>
       </div>
 
@@ -39,7 +39,7 @@
           <div class="form-group col-md-4">
               <label for="inputPassword4">كلمة السر</label>
               <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                  <input type="password" class="form-control @error('pharmacy.password') is-invalid @enderror" wire:model.defer='pharmacy.password' name='password'  placeholder="******" required>
+                  <input type="password" class="form-control text-right @error('pharmacy.password') is-invalid @enderror" wire:model.defer='pharmacy.password' name='password'  placeholder="******" required>
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('pharmacy.password') {{$message}} @enderror
                   </div>
@@ -48,7 +48,7 @@
           <div class="form-group col-md-4">
               <label for="inputPassword4">البريد الالكتروني</label>
               <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                  <input type="email" class="form-control @error('pharmacy.email') is-invalid @enderror" wire:model.defer='pharmacy.email' name='email'  placeholder="البريد الالكتروني" required>
+                  <input type="email" class="form-control text-right @error('pharmacy.email') is-invalid @enderror" wire:model.defer='pharmacy.email' name='email'  placeholder="البريد الالكتروني" required>
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('pharmacy.email') {{$message}} @enderror
                   </div>
@@ -57,7 +57,7 @@
           <div class="form-group col-md-4">
               <label for="inputPassword4">اسم الصيدالية</label>
               <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                  <input type="text" class="form-control @error('pharmacy.name') is-invalid @enderror" wire:model.defer='pharmacy.name' name='name'  placeholder="اسم الصيدالية" required>
+                  <input type="text" class="form-control text-right @error('pharmacy.name') is-invalid @enderror" wire:model.defer='pharmacy.name' name='name'  placeholder="اسم الصيدالية" required>
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('pharmacy.name') {{$message}} @enderror
                   </div>
@@ -70,7 +70,7 @@
           <div class="form-group col-md-2">
               <label for="inputAddress">شعار الصيدالية</label>
               <div class="input-group">
-                <input type="file" class="form-control @error('pharmacy.photo') is-invalid @enderror" wire:model.defer='pharmacy.photo'  aria-label="Upload">
+                <input type="file" class="form-control text-right @error('pharmacy.photo') is-invalid @enderror" wire:model.defer='pharmacy.photo'  aria-label="Upload">
                 <div id="validationServer05Feedback" class="invalid-feedback">
                   @error('pharmacy.photo') {{$message}} @enderror
                 </div>
@@ -80,7 +80,7 @@
           <div class="form-group col-md-2">
               <label for="inputAddress">احداتيات ( Y ) </label>
               <div class="input-group ">
-                  <input type="text" name='y' wire:model.defer='pharmacy.y' class="form-control @error('pharmacy.y') is-invalid @enderror"  placeholder="y location">
+                  <input type="text" name='y' wire:model.defer='pharmacy.y' class="form-control text-right @error('pharmacy.y') is-invalid @enderror"  placeholder="y location">
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('pharmacy.y') {{$message}} @enderror
                   </div>
@@ -89,7 +89,7 @@
           <div class="form-group col-md-2">
               <label for="inputAddress">احداتيات ( X ) </label>
               <div class="input-group ">
-                  <input type="text" name='x' wire:model.defer='pharmacy.x' class="form-control @error('pharmacy.x') is-invalid @enderror"  placeholder=" x location">
+                  <input type="text" name='x' wire:model.defer='pharmacy.x' class="form-control text-right @error('pharmacy.x') is-invalid @enderror"  placeholder=" x location">
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('pharmacy.x') {{$message}} @enderror
                   </div>
@@ -98,7 +98,7 @@
           <div class="form-group col-md-2">
             <label for="inputAddress">رقم الهاتف </label>
             <div class="input-group ">
-                <input type="number" name='phone' wire:model.defer='pharmacy.phone' class="form-control @error('pharmacy.phone') is-invalid @enderror"  placeholder="09x-xxxxxxx">
+                <input type="number" name='phone' wire:model.defer='pharmacy.phone' class="form-control text-right @error('pharmacy.phone') is-invalid @enderror"  placeholder="09x-xxxxxxx">
                 <div id="validationServer05Feedback" class="invalid-feedback">
                   @error('pharmacy.phone') {{$message}} @enderror
                 </div>
@@ -107,7 +107,7 @@
           <div class="form-group col-md-4">
               <label for="inputAddress">موقع الصيدالية </label>
               <div class="input-group ">
-                  <input type="text" name='address' wire:model.defer='pharmacy.address' class="form-control @error('pharmacy.address') is-invalid @enderror "  placeholder="صيدلية الطبي - شارع الزاوية">
+                  <input type="text" name='address' wire:model.defer='pharmacy.address' class="form-control text-right @error('pharmacy.address') is-invalid @enderror "  placeholder="موقع الصيدالية ">
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('pharmacy.address') {{$message}} @enderror
                   </div>

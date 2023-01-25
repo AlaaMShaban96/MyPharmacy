@@ -61,7 +61,7 @@
                       </td>
                         <th scope="row">
                             <a href="#" class="avatar ">
-                                <img alt="Image placeholder" class="" src="{{isset($user->image)?asset($user->image):'../assets/img/theme/bootstrap.jpg'}}">
+                                <img alt="Image placeholder" style="height: 100%;"class="" src="{{isset($user->image)?asset($user->image):'../assets/img/theme/bootstrap.jpg'}}">
                             </a>
                         </th>
                         <th scope="row">
