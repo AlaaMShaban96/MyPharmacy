@@ -36,46 +36,46 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-username">اسم الصيدالية</label>
-                        <input type="text" id="input-username"wire:model.lazy="user.name" class="form-control" placeholder="اسم الصيدالية" value="{{auth()->user()->pharmacy->name}}" >
+                        <label class="form-control-label " for="input-username">اسم الصيدالية</label>
+                        <input type="text" id="input-username"wire:model.lazy="user.name" class="form-control  text-right" placeholder="اسم الصيدالية" value="{{auth()->user()->pharmacy->name}}" >
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-email">البريد الالكتروني</label>
-                        <input type="email" id="input-email" disabled class="form-control" placeholder="info@nano-tech.ly" value='{{auth()->user()->email}}'>
+                        <label class="form-control-label " for="input-email">البريد الالكتروني</label>
+                        <input type="email" id="input-email" disabled class="form-control  text-right" placeholder="info@nano-tech.ly" value='{{auth()->user()->email}}'>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-first-name">اسم المستخدم</label>
-                        <input type="text" id="input-first-name"wire:model.lazy="user.username" class="form-control" placeholder="المستخدم الرائسي" >
+                        <label class="form-control-label " for="input-first-name">اسم المستخدم</label>
+                        <input type="text" id="input-first-name"wire:model.lazy="user.username" class="form-control  text-right" placeholder="المستخدم الرائسي" >
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name">كلمة السر</label>
-                        <input type="password" id="input-last-name" wire:model.lazy="user.password" class="form-control" placeholder="كلمة السر" >
+                        <label class="form-control-label " for="input-last-name">كلمة السر</label>
+                        <input type="password" id="input-last-name" wire:model.lazy="user.password" class="form-control  text-right" placeholder="كلمة السر" >
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name">خط الطول على الخريطة</label>
-                        <input type="text" id="input-last-name" class="form-control" wire:model.lazy="user.x"placeholder="x" >
+                        <label class="form-control-label " for="input-last-name">خط الطول على الخريطة</label>
+                        <input type="text" id="input-last-name" class="form-control  text-right" wire:model.lazy="user.x"placeholder="x" >
                       </div>
                     </div>
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name"> خط العرض على الخريطة</label>
-                        <input type="text" id="input-last-name" class="form-control"wire:model.lazy="user.y" placeholder="y">
+                        <label class="form-control-label " for="input-last-name"> خط العرض على الخريطة</label>
+                        <input type="text" id="input-last-name" class="form-control  text-right"wire:model.lazy="user.y" placeholder="y">
                       </div>
                     </div> 
                     {{-- <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-last-name"> الصورة شعار الصيدالية</label>
-                        <input type="text" id="input-last-name" class="form-control"wire:model.lazy="user.y" placeholder="y">
+                        <label class="form-control-label " for="input-last-name"> الصورة شعار الصيدالية</label>
+                        <input type="text" id="input-last-name" class="form-control  text-right"wire:model.lazy="user.y" placeholder="y">
                       </div>
                     </div> --}}
                   </div>
