@@ -32,7 +32,7 @@
           <button type="button" class="btn btn-warning "  wire:click="closeForm()">الغاء</button>
       </div>
 
-      <h3>معلومات الصيدالية</h3>
+      <h3>معلومات صيدالية</h3>
 
       <br>
       <div class="form-row ">
@@ -55,9 +55,9 @@
               </div> 
           </div>
           <div class="form-group col-md-4">
-              <label for="inputPassword4">اسم الصيدالية</label>
+              <label for="inputPassword4">اسم صيدالية</label>
               <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                  <input type="text" class="form-control text-right @error('pharmacy.name') is-invalid @enderror" wire:model.defer='pharmacy.name' name='name'  placeholder="اسم الصيدالية" required>
+                  <input type="text" class="form-control text-right @error('pharmacy.name') is-invalid @enderror" wire:model.defer='pharmacy.name' name='name'  placeholder="اسم صيدالية" required>
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('pharmacy.name') {{$message}} @enderror
                   </div>
@@ -68,7 +68,7 @@
       
       <div class="form-row ">
           <div class="form-group col-md-2">
-              <label for="inputAddress">شعار الصيدالية</label>
+              <label for="inputAddress">شعار صيدالية</label>
               <div class="input-group">
                 <input type="file" class="form-control text-right @error('pharmacy.photo') is-invalid @enderror" wire:model.defer='pharmacy.photo'  aria-label="Upload">
                 <div id="validationServer05Feedback" class="invalid-feedback">
@@ -105,9 +105,9 @@
             </div> 
         </div>
           <div class="form-group col-md-4">
-              <label for="inputAddress">موقع الصيدالية </label>
+              <label for="inputAddress">موقع صيدالية </label>
               <div class="input-group ">
-                  <input type="text" name='address' wire:model.defer='pharmacy.address' class="form-control text-right @error('pharmacy.address') is-invalid @enderror "  placeholder="موقع الصيدالية ">
+                  <input type="text" name='address' wire:model.defer='pharmacy.address' class="form-control text-right @error('pharmacy.address') is-invalid @enderror "  placeholder="موقع صيدالية ">
                   <div id="validationServer05Feedback" class="invalid-feedback">
                     @error('pharmacy.address') {{$message}} @enderror
                   </div>
@@ -151,7 +151,7 @@
                   <th scope="col"></th>
                   <th scope="col"></th>
                   <th scope="col" class="sort" data-sort="budget">تاريخ الانضمام</th>
-                  <th scope="col" class="sort" data-sort="name">اسم الصيدالية</th>
+                  <th scope="col" class="sort" data-sort="name">اسم صيدالية</th>
                   <th scope="col" class="sort" data-sort="name">الصورة</th>
                 </tr>
               </thead>

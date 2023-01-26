@@ -5,7 +5,7 @@
       <div class="col">
         <div class="card bg-default shadow">
           <div class="card-header bg-transparent border-0">
-            <h3 class="text-white mb-0">الطلبات الخاصة بالصيدالية</h3>
+            <h3 class="text-white mb-0">الطلبات الخاصة بصيدالية</h3>
           </div>
           <div class="table-responsive">
             <table class="table align-items-center table-dark table-flush">

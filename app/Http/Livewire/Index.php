@@ -37,9 +37,9 @@ class Index extends Component
         'text'=>$this->order[$key]['text'],
         'status'=>2
         ]);
-        $notification="تم الرد علي الطلب من قبل ".auth()->user()->pharmacy->name;
+        $notification="تم الرد على الطلب من قبل ".auth()->user()->pharmacy->name;
         event(new SendNotification($order->user,$notification));
-        $this->dispatchBrowserEvent('success-tost',['action'=>"الرد علي الطلب "]);
+        $this->dispatchBrowserEvent('success-tost',['action'=>"الرد على الطلب "]);
       $this->myOrderNumber+1;  
    }
   public function x(Order $order)

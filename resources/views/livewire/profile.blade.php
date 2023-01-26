@@ -20,7 +20,7 @@
             <div class="card-header">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">تعديل بيانات الصيدالية</h3>
+                  <h3 class="mb-0">تعديل بيانات صيدالية</h3>
                 </div>
                 <form role="form" wire:submit.prevent="save" method="POST">
                 <div class="col-4 text-right">
@@ -36,8 +36,8 @@
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label " for="input-username">اسم الصيدالية</label>
-                        <input type="text" id="input-username"wire:model.lazy="user.name" class="form-control  text-right" placeholder="اسم الصيدالية" value="{{auth()->user()->pharmacy->name}}" >
+                        <label class="form-control-label " for="input-username">اسم صيدالية</label>
+                        <input type="text" id="input-username"wire:model.lazy="user.name" class="form-control  text-right" placeholder="اسم صيدالية" value="{{auth()->user()->pharmacy->name}}" >
                       </div>
                     </div>
                     <div class="col-lg-6">
@@ -74,7 +74,7 @@
                     </div> 
                     {{-- <div class="col-lg-6">
                       <div class="form-group">
-                        <label class="form-control-label " for="input-last-name"> الصورة شعار الصيدالية</label>
+                        <label class="form-control-label " for="input-last-name"> الصورة شعار صيدالية</label>
                         <input type="text" id="input-last-name" class="form-control  text-right"wire:model.lazy="user.y" placeholder="y">
                       </div>
                     </div> --}}

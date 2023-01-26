@@ -6,7 +6,7 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              <h3 class="mb-0">الطلبات التي تم الردعليها  </h3>
+              <h3 class="mb-0">الطلبات التي تم الردعلىها  </h3>
             </div>
             <!-- Light table -->
             <div class="table-responsive">
@@ -15,7 +15,7 @@
                   <tr>
                     <th scope="col" class="sort" data-sort="name">الدواء</th>
                     <th scope="col" class="sort" data-sort="budget">شرح</th>
-                    <th scope="col" class="sort" data-sort="budget">الصيدالية</th>
+                    <th scope="col" class="sort" data-sort="budget">صيدالية</th>
                     <th scope="col" class="sort" data-sort="completion">السعر</th>
                     <th scope="col" class="sort" data-sort="completion">الرد</th>
                     <th scope="col"></th>
