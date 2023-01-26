@@ -18,14 +18,14 @@ class AdvertisingSeed extends Seeder
         DB::table('advertisings')->insert([
   
             [
-                'image' => 'https://media.sproutsocial.com/uploads/2018/05/Facebook-Ad-Examples.png',
+                'image' => null,
                 'text' => ' افضل العروض من الشركة العالمية لي علاج الكورونا',
                 'pharmacy_id' =>2,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-                'image' => 'https://media.sproutsocial.com/uploads/2018/05/Facebook-Ad-Examples.png',
+                'image' => null,
                 'text' => 'افضل العروض من الشركة العالمية لي علاج الكوحة',
                 'pharmacy_id' =>1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
