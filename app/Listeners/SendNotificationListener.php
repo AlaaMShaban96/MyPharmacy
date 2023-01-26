@@ -29,7 +29,7 @@ class SendNotificationListener
     public function handle(SendNotification $event)
     {
         try {
-            FCMService::send([$event->user->id] ,$event->notification); 
+            FCMService::send([''.$event->user->id] ,$event->notification); 
         } catch (\Throwable $th) {
         }
         
