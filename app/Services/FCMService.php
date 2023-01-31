@@ -20,7 +20,6 @@ class FCMService
             "name"=>"INTERNAL_CAMPAIGN_NAME",
             "app_id"=>"dd2bc71c-72f2-4018-9e24-02039015dabf"
         ];
-        // dd($lisOfIds,$body);
         $response = $client->request('POST', 'https://onesignal.com/api/v1/notifications',
          [
             'body' =>json_encode($body),

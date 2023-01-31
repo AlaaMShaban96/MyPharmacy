@@ -65,7 +65,7 @@
               </a>
             </div>
             <div class="col-xl-3 col-md-6">
-              <a  href="{{url('/all-record')}}" target="_blank" rel="noopener noreferrer">
+              <a  href="{{url('/all-record')}}" rel="noopener noreferrer">
                 <div class="card card-stats">
                   <!-- Card body -->
                   <div class="card-body">
