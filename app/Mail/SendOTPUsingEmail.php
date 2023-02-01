@@ -12,15 +12,15 @@ use Illuminate\Queue\SerializesModels;
 class SendOTPUsingEmail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    private $code;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(private $code)
+    public function __construct( $code)
     {
-        //
+        $this->code=$code;
     }
 
     /**
