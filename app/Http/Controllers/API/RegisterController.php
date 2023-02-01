@@ -53,7 +53,7 @@ class RegisterController extends Controller
     {
         try {
             //The email sending is done using the to method on the Mail facade
-            Mail::to( $request->email)->send(new SendOTPUsingEmail( $request->code));
+            Mail::to( $request->email)->send(new SendOTPUsingEmail( $request->code ));
             return response()->json(['message'=>'Send OTP Using Email Successfully'], 200);
 
         } catch (\Throwable $th) {

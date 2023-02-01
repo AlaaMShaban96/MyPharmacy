@@ -20,7 +20,7 @@ class SendOTPUsingEmail extends Mailable
      */
     public function __construct( $code)
     {
-        $this->code=$code;
+      $this->code=$code;
     }
 
     /**
@@ -56,5 +56,15 @@ class SendOTPUsingEmail extends Mailable
     public function attachments()
     {
         return [];
+    }
+    
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->view('mail.send_otp_using_email')->with(['code'=>$this->code]);
     }
 }
