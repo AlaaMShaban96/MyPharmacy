@@ -23,30 +23,30 @@ class SendOTPUsingEmail extends Mailable
       $this->code=$code;
     }
 
-    /**
-     * Get the message envelope.
-     *
-     * @return \Illuminate\Mail\Mailables\Envelope
-     */
-    public function envelope()
-    {
-        return new Envelope(
-            subject: 'تأكيد الحساب ',
-        );
-    }
+    // /**
+    //  * Get the message envelope.
+    //  *
+    //  * @return \Illuminate\Mail\Mailables\Envelope
+    //  */
+    // public function envelope()
+    // {
+    //     return new Envelope(
+    //         subject: 'تأكيد الحساب ',
+    //     );
+    // }
 
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function content()
-    {
-        return new Content(
-            view: 'mail.send_otp_using_email',
-            with: ['code' => $this->code],
-        );
-    }
+    // /**
+    //  * Get the message content definition.
+    //  *
+    //  * @return \Illuminate\Mail\Mailables\Content
+    //  */
+    // public function content()
+    // {
+    //     return new Content(
+    //         view: 'mail.send_otp_using_email',
+    //         with: ['code' => $this->code],
+    //     );
+    // }
 
     /**
      * Get the attachments for the message.
