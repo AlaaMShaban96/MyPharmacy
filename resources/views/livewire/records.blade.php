@@ -61,21 +61,7 @@
                             <span class="name mb-0 text-sm">{{$order->pivot->text}}</span> 
                         </div>
                       </td>
-                      <td>
-                        <div class="media align-items-center">
-                          {{-- <button type="button"
-                              class="btn btn-info show-order"
-                              data-img-url="{{$order->image==""?asset('assets/img/logo.jpg'):$order->image}}"
-                              data-name="{{$order->name}}"
-                              data-text="{{$order->text}}"
-                              data-toggle="modal" 
-                              data-target="#exampleModal"
-                             >عرض الطلب </button> --}}
-                          <div class="media-body">
-                            <span class="name mb-0 text-sm">{{$order->name}}</span>
-                          </div>
-                        </div>
-                      </td>
+                      
                   
                   
                   </tr>
