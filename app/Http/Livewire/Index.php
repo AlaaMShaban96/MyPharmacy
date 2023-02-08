@@ -19,8 +19,9 @@ class Index extends Component
    
     public function render()
     {
+        $myOrderIds=auth()->user()->pharmacy->orders()->pluck('order_id');
         $this->myOrderNumber=(auth()->user()->pharmacy->orders->count()!=0)?auth()->user()->pharmacy->orders()->wherePivot('status',2)->count():0;
-        $orders=Order::where('status',true)->where('public',true)->orderBy('id', 'DESC')->get();
+        $orders=Order::whereNotIn('id', $myOrderIds)->where('status',true)->where('public',true)->orderBy('id', 'DESC')->get();
         $this->allOrdersNumber=$orders->count();
         return view('livewire.index',compact('orders'));
     }
