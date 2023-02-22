@@ -16,25 +16,25 @@ class PharmacSeed extends Seeder
     public function run()
     {
         DB::table('pharmacies')->insert([
-  
+
             [
-                'name' => 'صيدالية شارع الزاوية',
-                'x'=>'32.726405',
-                'y'=>'12.703670',
-                'address'=>'صيدلية الطبي - شارع الزاوية',
-                'user_id'=>1,
+                'name' => 'صيدلية شارع الزاوية',
+                'x' => '32.726405',
+                'y' => '12.703670',
+                'address' => 'صيدلية الطبي - شارع الزاوية',
+                'user_id' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ],
             [
-                'name' => 'صيدالية الطبي',
-                'x'=>'32.726405',
-                'y'=>'12.703670',
-                'address'=>'صيدلية الطبي - شارع الزاوية',
-                'user_id'=>2,
+                'name' => 'صيدلية الطبي',
+                'x' => '32.726405',
+                'y' => '12.703670',
+                'address' => 'صيدلية الطبي - شارع الزاوية',
+                'user_id' => 2,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ]
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
         ]);
     }
 }

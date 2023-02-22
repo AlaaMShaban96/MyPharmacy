@@ -53,10 +53,10 @@ use App\Http\Controllers\Dasboard\SystemController;
 //         dd($response);
 // });
 Route::get('/', Login::class)->name('login');
+Route::post('login/', [SystemController::class,'login']);
 
 Route::middleware(['auth'])->group(function () {
     
-    Route::post('login/', [SystemController::class,'login']);
     Route::get('/dashboard', Index::class);
     Route::get('/my-oreders', MyOrders::class);
     Route::get('/records', Records::class);

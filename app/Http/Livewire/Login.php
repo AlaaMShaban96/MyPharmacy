@@ -50,7 +50,7 @@ class Login extends Component
             }
             
         }else{
-            Session::flash('done-message', ' حساب المستخدم غير مفعل او غير موجود'); 
+            Session::flash('done-message', ' حساب الزبون غير مفعل او غير موجود'); 
             Session::flash('alert-class', 'alert-danger');
         }
     }
