@@ -12,6 +12,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">الدواء</th>
+                                    <th scope="col" class="sort" data-sort="name">عنوان</th>
                                     <th scope="col" class="sort" data-sort="budget">شرح</th>
                                     <th scope="col">السعر</th>
                                     <th scope="col">الرد</th>
@@ -26,7 +27,13 @@
                                                 <button type="button" class="btn btn-info show-order"
                                                     data-img-url="{{ $order->image == '' ? asset('assets/img/logo.jpg') : $order->image }}"
                                                     data-name="{{ $order->name }}" data-text="{{ $order->text }}"
-                                                    data-toggle="modal" data-target="#exampleModal">عرض الطلب </button>
+                                                    data-toggle="modal" data-target="#exampleModal">صورة الدواء
+                                                </button>
+
+                                            </div>
+                                        </th>
+                                        <th scope="row">
+                                            <div class="media align-items-center">
                                                 <div class="media-body">
                                                     <span class="name mb-0 text-sm">{{ $order->name }}</span>
                                                 </div>

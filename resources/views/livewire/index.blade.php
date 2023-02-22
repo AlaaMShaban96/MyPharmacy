@@ -101,7 +101,7 @@
                                                     data-img-url="{{ $order->image == '' ? asset('assets/img/logo.jpg') : $order->image }}"
                                                     data-name="{{ $order->name }}" data-text="{{ $order->text }}"
                                                     data-toggle="modal" data-target="#exampleModal"
-                                                    wire:click.prevent="x({{ $order }})">عرض الطلب </button>
+                                                    wire:click.prevent="x({{ $order }})">صورة الدواء </button>
                                             </div>
                                         </th>
                                         <th scope="row">

@@ -14,6 +14,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">الدواء</th>
+                                    <th scope="col" class="sort" data-sort="name">عنوان</th>
                                     <th scope="col" class="sort" data-sort="budget">شرح</th>
                                     <th scope="col" class="sort" data-sort="budget">صيدلية</th>
                                     <th scope="col" class="sort" data-sort="completion">السعر</th>
@@ -31,7 +32,13 @@
                                                     data-img-url="{{ $record->order->image == '' ? asset('assets/img/logo.jpg') : $record->order->image }}"
                                                     data-name="{{ $record->order->name }}"
                                                     data-text="{{ $record->order->text }}" data-toggle="modal"
-                                                    data-target="#exampleModal">عرض الطلب </button>
+                                                    data-target="#exampleModal">صورة الدواء </button>
+                                                
+                                            </div>
+                                        </th>
+                                        <th scope="row">
+
+                                            <div class="media align-items-center">
                                                 <div class="media-body">
                                                     <span class="name mb-0 text-sm">{{ $record->order->name }}</span>
                                                 </div>
