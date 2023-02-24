@@ -20,7 +20,7 @@ class MyOrders extends Component
             ->pharmacy
             ->orders()
             ->where('public', 0)
-            ->orderBy('pivot_id', 'DESC')
+            ->orderBy('pivot_id', 'asc')
             ->wherePivot('status', 1)
             ->get();
 
