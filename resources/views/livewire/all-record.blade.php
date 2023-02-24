@@ -14,7 +14,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">الدواء</th>
-                                    <th scope="col" class="sort" data-sort="name">عنوان الطالب</th>
+                                    <th scope="col" class="sort" data-sort="name">عنوان الطلب</th>
                                     <th scope="col" class="sort" data-sort="budget">شرح</th>
                                     <th scope="col" class="sort" data-sort="budget">صيدلية</th>
                                     <th scope="col" class="sort" data-sort="completion">السعر</th>
