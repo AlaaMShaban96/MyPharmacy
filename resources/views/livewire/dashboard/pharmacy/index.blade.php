@@ -219,7 +219,7 @@
                                     <th scope="row">
                                         <a href="#" class="avatar  ">
                                             <img alt="Image placeholder" style="height: 100%;" class=""
-                                                src="{{ isset($pharmacy->user->image) ? asset($pharmacy->user->image) : '../assets/img/theme/bootstrap.jpg' }}">
+                                                src="{{ isset($pharmacy->user->image) ? asset($pharmacy->user->image) : asset('assets/img/theme/team-1.jpg') }}">
                                         </a>
                                     </th>
 

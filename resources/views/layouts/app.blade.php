@@ -135,7 +135,7 @@
                                 <div class="media align-items-center">
                                     <span class="avatar avatar-sm ">
                                         <img alt="Image placeholder"
-                                            src="{{ auth()->user()->image == null ? asset('assets/img/theme/team-1.jpg') : auth()->user()->image }}">
+                                            src="{{ auth()->user()->image == null ? (auth()->user()->pharmacy_id != null ? asset('assets/img/theme/team-1.jpg') : asset('assets/img/logo.jpg')) : auth()->user()->image }}">
                                     </span>
                                     <div class="media-body  ml-2  d-none d-lg-block">
                                         <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
