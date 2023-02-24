@@ -42,6 +42,8 @@ class Index extends Component
         event(new SendNotification($order->user,$notification));
         $this->dispatchBrowserEvent('success-tost',['action'=>"الرد على الطلب "]);
       $this->myOrderNumber+1;  
+      $this->order[$key]['price']="";
+      $this->order[$key]['text']="";
    }
   public function x(Order $order)
   {
