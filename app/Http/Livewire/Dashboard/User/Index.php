@@ -17,11 +17,12 @@ class Index extends Component
     public function destroy(User $user)
     {
         try {
-            $user->status = 3;
+
             $user->tokens->each(function ($token, $key) {
                 $token->delete();
             });
-            $user->save();
+            $user->delete();
+
             $this->dispatchBrowserEvent('success-tost', ['action' => "الحذف"]);
 
         } catch (\Throwable$th) {
