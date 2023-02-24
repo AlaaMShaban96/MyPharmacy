@@ -41,5 +41,8 @@ class MyOrders extends Component
         $notification = "تم الرد على الطلب من قبل " . auth()->user()->pharmacy->name;
         event(new SendNotification($order->user, $notification));
         $this->dispatchBrowserEvent('success-tost', ['action' => "الرد على الطلب "]);
+        $this->order[$key]['price'] = "";
+        $this->order[$key]['text'] = "";
+
     }
 }
