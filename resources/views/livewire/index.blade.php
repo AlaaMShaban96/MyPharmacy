@@ -85,7 +85,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">الدواء</th>
-                                    <th scope="col" class="sort" data-sort="name">عنوان</th>
+                                    <th scope="col" class="sort" data-sort="name">عنوان الطالب</th>
                                     <th scope="col" class="sort" data-sort="budget">شرح</th>
                                     <th scope="col">السعر</th>
                                     <th scope="col">الرد</th>

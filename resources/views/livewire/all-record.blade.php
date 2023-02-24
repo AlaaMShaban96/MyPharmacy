@@ -14,7 +14,7 @@
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">الدواء</th>
-                                    <th scope="col" class="sort" data-sort="name">عنوان</th>
+                                    <th scope="col" class="sort" data-sort="name">عنوان الطالب</th>
                                     <th scope="col" class="sort" data-sort="budget">شرح</th>
                                     <th scope="col" class="sort" data-sort="budget">صيدلية</th>
                                     <th scope="col" class="sort" data-sort="completion">السعر</th>
@@ -33,7 +33,7 @@
                                                     data-name="{{ $record->order->name }}"
                                                     data-text="{{ $record->order->text }}" data-toggle="modal"
                                                     data-target="#exampleModal">صورة الدواء </button>
-                                                
+
                                             </div>
                                         </th>
                                         <th scope="row">
