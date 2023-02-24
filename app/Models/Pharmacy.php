@@ -13,7 +13,7 @@ class Pharmacy extends Model
 
     public function orders()
     {
-        return $this->belongsToMany(Order::class, 'orders_pharmacies')->withPivot('id', 'price', 'text', 'status')->orderBy('id', 'DESC');
+        return $this->belongsToMany(Order::class, 'orders_pharmacies')->withPivot('id', 'price', 'text', 'status');
     }
     public function user()
     {
