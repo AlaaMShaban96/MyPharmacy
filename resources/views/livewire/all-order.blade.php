@@ -30,9 +30,6 @@
                                                     data-name="{{ $order->name }}" data-text="{{ $order->text }}"
                                                     data-toggle="modal" data-target="#exampleModal">صورة الدواء
                                                 </button>
-                                                <div class="media-body">
-                                                    <span class="name mb-0 text-sm">{{ $order->name }}</span>
-                                                </div>
                                             </div>
                                         </th>
                                         <th scope="row">
