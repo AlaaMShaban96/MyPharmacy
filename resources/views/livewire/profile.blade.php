@@ -53,9 +53,9 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label class="form-control-label " for="input-first-name"> اسم مستخدم</label>
-                                <input type="text" id="input-first-name"wire:model.lazy="user.username"
-                                    class="form-control  text-right" placeholder="الزبون الرائسي">
+                                <label class="form-control-label " for="input-first-name"> موقع الصيدالية</label>
+                                <input type="text" id="input-first-name"wire:model.lazy="user.address"
+                                    class="form-control  text-right" placeholder=" موقع الصيدالية">
                             </div>
                         </div>
                         <div class="col-lg-6">

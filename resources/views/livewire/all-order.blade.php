@@ -35,6 +35,13 @@
                                                 </div>
                                             </div>
                                         </th>
+                                        <th scope="row">
+                                            <div class="media align-items-center">
+                                                <div class="media-body">
+                                                    <span class="name mb-0 text-sm">{{ $order->name }}</span>
+                                                </div>
+                                            </div>
+                                        </th>
                                         <td class="budget">
                                             {{ mb_strimwidth($order->text, 0, 30, '...') }}
                                         </td>
