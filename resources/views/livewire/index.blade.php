@@ -122,7 +122,7 @@
                                                 <div class="avatar-group">
                                                     <input placeholder="سعر الدواء"
                                                         wire:model.lazy='order.{{ $key }}.price' required
-                                                        type="number" name="price" id="">
+                                                        type="number" step="0.001" name="price" id="">
                                                 </div>
                                             </td>
                                             <td>
